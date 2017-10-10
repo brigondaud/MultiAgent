@@ -10,13 +10,13 @@ public class TestGUI {
 		ig.addGraphicalElement(new Rectangle(90, 40, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(100, 40, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(110, 40, Color.WHITE, Color.WHITE, 10));
-		
+
 		ig.addGraphicalElement(new Rectangle(80, 50, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(90, 50, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(100, 50, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(110, 50, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(120, 50, Color.WHITE, Color.WHITE, 10));
-		
+
 		ig.addGraphicalElement(new Rectangle(70, 60, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(80, 60, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(90, 60, Color.WHITE, Color.WHITE, 10));
@@ -60,7 +60,7 @@ public class TestGUI {
 		ig.addGraphicalElement(new Rectangle(110, 110, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(120, 110, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(130, 110, Color.WHITE, Color.WHITE, 10));
-		
+
 		ig.addGraphicalElement(new Rectangle(70, 120, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(80, 120, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(90, 120, Color.WHITE, Color.WHITE, 10));
@@ -73,7 +73,7 @@ public class TestGUI {
 		ig.addGraphicalElement(new Rectangle(80, 130, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(120, 130, Color.WHITE, Color.WHITE, 10));
 		ig.addGraphicalElement(new Rectangle(140, 130, Color.WHITE, Color.WHITE, 10));
-		
-		ig.addGraphicalElement(new Text(100, 160, Color.WHITE, "INVADER"));	
+
+		ig.addGraphicalElement(new Text(100, 160, Color.WHITE, "INVADER"));
 	}
 }
