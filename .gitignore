@@ -1,0 +1,9 @@
+#Compiled .class
+bin
+
+#IDE config
+.classpath
+.project
+
+#pdf
+*.pdf
