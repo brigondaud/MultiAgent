@@ -10,7 +10,14 @@ import java.util.Random;
  *
  */
 public class Balls {
+	/**
+	 * The balls are represented as Points
+	 */
 	private Point[] balls;
+	/**
+	 * The init position for each ball
+	 */
+	private Point[] init_balls;
 
 	/**
 	 * Creates balls with random coordinates
@@ -20,9 +27,13 @@ public class Balls {
 	 */
 	public Balls(int ball_number) {
 		this.balls = new Point[ball_number];
+		this.init_balls = new Point[ball_number];
 		Random coordsGenerator = new Random();
 		for (int i = 0; i < balls.length; i++) {
-			this.balls[i] = new Point(coordsGenerator.nextInt(200), coordsGenerator.nextInt(200));
+			int init_x = coordsGenerator.nextInt(200);
+			int init_y = coordsGenerator.nextInt(200);
+			this.balls[i] = new Point(init_x, init_y);
+			this.init_balls[i] = new Point(init_x, init_y);
 		}
 	}
 
@@ -55,6 +66,8 @@ public class Balls {
 	 * Reset the positions of the balls
 	 */
 	public void reInit() {
-
+		for (int i = 0; i < balls.length; i++) {
+			balls[i].move((int) init_balls[i].getX(), (int) init_balls[i].getY());
+		}
 	}
 }

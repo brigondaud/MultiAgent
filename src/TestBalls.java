@@ -15,5 +15,7 @@ public class TestBalls {
 		System.out.println("Single ball: " + singleBall);
 		singleBall.translate(1, 2);
 		System.out.println("Translating the ball from +1, +2 : "+ singleBall);
+		singleBall.reInit();
+		System.out.println("Reset the singleBall position: " + singleBall);
 	}
 }
