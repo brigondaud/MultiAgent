@@ -44,7 +44,7 @@ public class Balls {
 	public String toString() {
 		String ballsString = "";
 		for (Point ball : balls) {
-			ballsString += "(" + ball.getX() + ", " + ball.getY() + ")\n";
+			ballsString += ball.toString();
 		}
 		return ballsString;
 	}
