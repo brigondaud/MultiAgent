@@ -1,4 +1,5 @@
-import Balls.Balls;
+package test;
+import balls.Balls;
 
 /**
  * Test file for the Balls.Balls class
