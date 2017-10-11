@@ -1,7 +1,7 @@
 package simulator;
 
 import gui.*;
-import balls.Balls;
+import balls.GraphicalBalls;
 import java.util.Random;
 
 /**
@@ -12,20 +12,20 @@ import java.util.Random;
  */
 public class BallsSimulator implements Simulable {
 
-	private Balls balls;
+	private GraphicalBalls balls;
 
-	public BallsSimulator() {
-		this.balls = new Balls(5);
+	public BallsSimulator(GUISimulator gui) {
+		this.balls = new GraphicalBalls(100, gui.getPanelWidth(), gui.getPanelHeight());
+		gui.addGraphicalElement(balls);
 	}
 
 	/**
-	 * Moving all the balls with random translation coordinates
+	 * Moves all the balls with random translation coordinates
 	 */
 	@Override
 	public void next() {
 		Random randomMovement = new Random();
 		balls.translate(randomMovement.nextInt(2), randomMovement.nextInt(2));
-		System.out.println(balls);
 	}
 
 	/**

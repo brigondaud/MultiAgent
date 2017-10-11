@@ -13,27 +13,29 @@ public class Balls {
 	/**
 	 * The balls are represented as Points
 	 */
-	private Point[] balls;
+	protected Point[] balls;
 	/**
 	 * The init position for each ball
 	 */
-	private Point[] init_balls;
+	private Point[] initBalls;
 
 	/**
-	 * Creates balls with random coordinates
+	 * Creates ballNumber balls with random coordinates between maxWidth and
+	 * maxHeight
 	 * 
-	 * @param ball_number
-	 *            The number of balls created
+	 * @param ballNumber
+	 * @param maxWidth
+	 * @param maxHeight
 	 */
-	public Balls(int ball_number) {
-		this.balls = new Point[ball_number];
-		this.init_balls = new Point[ball_number];
+	public Balls(int ballNumber, int maxWidth, int maxHeight) {
+		this.balls = new Point[ballNumber];
+		this.initBalls = new Point[ballNumber];
 		Random coordsGenerator = new Random();
 		for (int i = 0; i < balls.length; i++) {
-			int init_x = coordsGenerator.nextInt(200);
-			int init_y = coordsGenerator.nextInt(200);
-			this.balls[i] = new Point(init_x, init_y);
-			this.init_balls[i] = new Point(init_x, init_y);
+			int initX = coordsGenerator.nextInt(maxWidth);
+			int initY = coordsGenerator.nextInt(maxHeight);
+			this.balls[i] = new Point(initX, initY);
+			this.initBalls[i] = new Point(initX, initY);
 		}
 	}
 
@@ -67,7 +69,7 @@ public class Balls {
 	 */
 	public void reInit() {
 		for (int i = 0; i < balls.length; i++) {
-			balls[i].move((int) init_balls[i].getX(), (int) init_balls[i].getY());
+			balls[i].move(initBalls[i].x, initBalls[i].y);
 		}
 	}
 }
