@@ -7,3 +7,9 @@ bin
 
 #pdf
 *.pdf
+/build/
+
+#Specific for Netbeans
+/nbproject/
+build.xml
+manifest.mf
