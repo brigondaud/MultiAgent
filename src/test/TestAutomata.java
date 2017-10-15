@@ -20,7 +20,7 @@ public class TestAutomata {
      */
     public static void main(String[] args) {
         
-        ConwayAutomaton conway = new ConwayAutomaton(10, 10, 5);
+        ConwayAutomaton conway = new ConwayAutomaton(30, 30, 30);
         conway.simulate();
     }
     

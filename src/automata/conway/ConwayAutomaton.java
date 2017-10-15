@@ -1,6 +1,7 @@
 package automata.conway;
 
 import automata.Automaton;
+import automata.Cell;
 import automata.State;
 import java.awt.Color;
 
@@ -47,4 +48,9 @@ public class ConwayAutomaton extends Automaton {
             new State("Dead", Color.WHITE)
         };
     }    
+
+    @Override
+    protected Cell getCellModel(int i, int j) {
+        return new ConwayCell(this.grid, i, j);
+    }
 }

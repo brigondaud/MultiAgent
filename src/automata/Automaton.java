@@ -46,6 +46,8 @@ abstract public class Automaton implements Simulable {
     public Automaton(int height, int width, int cellSize) {
         this.grid = new Grid(height, width);
         this.setCellSize(cellSize);
+        
+        
     }
     
     /**
@@ -68,13 +70,16 @@ abstract public class Automaton implements Simulable {
      * @return The GUI created and carried by the automaton
      */
     public GUISimulator simulate() {
-        int guiHeight = this.cellSize * this.grid.getHeight();
-        int guiWidth = this.cellSize * this.grid.getWidth();
+        int guiHeight = this.cellSize * this.grid.getHeight() + 5;
+        int guiWidth = this.cellSize * this.grid.getWidth() + 5;
                 
         // As the automaton carries its GUI, the user only needs to
         // create the automaton and then simulate it when he wants.
-        this.gui = new GUISimulator(guiHeight, guiWidth, Color.WHITE);        
+        this.gui = new GUISimulator(guiWidth, guiHeight, Color.WHITE);        
         this.gui.setSimulable(this);
+        
+        // Draw the grid (and the cells)
+        this.grid.draw(gui, cellSize, false);
         
         return this.gui;
     }
@@ -92,6 +97,16 @@ abstract public class Automaton implements Simulable {
             this.cellSize = 20;
     }
     
+    @Override
+    public void next() {
+        ;
+    }
+
+    @Override
+    public void restart() {
+        ;
+    }
+    
     /**
      * Returns possible states for cells of the automaton.
      * For example, this function would return an array
@@ -105,14 +120,19 @@ abstract public class Automaton implements Simulable {
      * @return An array of possible states
      */
     abstract protected State[] possibleStates();
-
-    @Override
-    public void next() {
-        ;
-    }
-
-    @Override
-    public void restart() {
-        ;
-    }
+    
+    /**
+     * Returns the associatd cell model with the automaton.
+     * This is a case of creational factory method pattern (see WP).
+     * 
+     * Each automaton child should override this method and return the
+     * class that will represent its cells. For example, the method
+     * ConwayAutomaton.getCellModel would return "new ConwayCell({...});"
+     * 
+     * The whole grid will be filled with cells returned by getCellModel.
+     * @param i The x-position of the new cell
+     * @param j The y-position of the new cell
+     * @return A cell in this automaton
+     */
+    abstract protected Cell getCellModel(int i, int j);
 }

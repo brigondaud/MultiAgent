@@ -19,20 +19,43 @@ abstract public class Cell {
     protected Grid grid;
     
     /**
+     * The x-position (height) of the cell.
+     */
+    protected int i;
+    
+    /**
+     * The y-position (width) of the cell.
+     */
+    protected int j;
+    
+    /**
      * The current state of the cell.
      */
     protected State state;
     
     /**
      * Cell constructor {Grid}.
+     * @param grid  The grid which contains the cell.
+     * @param i     The x-position (height) of the cell.
+     * @param j     The y-position (width) of the cell.
      * 
-     * @param grid The grid which contains the cell.
      * @see Grid
      * @see Cell#grid
      */
-    public Cell(Grid grid) {
+    public Cell(Grid grid, int i, int j) {
         this.grid = grid;
+        this.i = i;
+        this.j = j;
+        
         this.state = null;
+    }
+
+    /**
+     * State getter.
+     * @return The current state of the cell.
+     */
+    public State getState() {
+        return state;
     }
     
     /**
