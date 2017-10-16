@@ -14,13 +14,13 @@ import automata.Grid;
  */
 public class ConwayCell extends Cell {
 
-    public ConwayCell(Grid grid, int i, int j) {
-        super(grid, i, j);
-    }
+	public ConwayCell(Grid grid, int i, int j) {
+		super(grid, i, j);
+	}
 
-    @Override
-    public void initState() {
-        throw new UnsupportedOperationException("Not supported yet."); // OVR
-    }
-    
+	@Override
+	public void initState() {
+		throw new UnsupportedOperationException("Not supported yet."); // OVR
+	}
+
 }
