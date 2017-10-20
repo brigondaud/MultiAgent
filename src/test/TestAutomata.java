@@ -6,8 +6,6 @@
 package test;
 
 import automata.conway.ConwayAutomaton;
-import gui.GUISimulator;
-import java.awt.Color;
 
 /**
  *
@@ -19,9 +17,9 @@ public class TestAutomata {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        ConwayAutomaton conway = new ConwayAutomaton(30, 30, 30);
+
+        ConwayAutomaton conway = new ConwayAutomaton(35, 80, 10);
         conway.simulate();
     }
-    
+
 }
