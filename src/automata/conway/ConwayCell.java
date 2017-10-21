@@ -3,7 +3,6 @@ package automata.conway;
 import automata.Cell;
 import automata.Grid;
 import automata.State;
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
