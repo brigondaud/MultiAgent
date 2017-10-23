@@ -28,10 +28,9 @@ public class Grid {
      * The width of the grid (m). Should be > 0.
      */
     private int width;
-    
+
     /**
-     * The automaton associated to the grid.
-     * Used to access the cell model.
+     * The automaton associated to the grid. Used to access the cell model.
      */
     private final Automaton automaton;
 
@@ -51,14 +50,14 @@ public class Grid {
         this.setHeight(height);
         this.setWidth(width);
         this.automaton = checkAutomaton(automaton);
-        
+
         // Default content of array elements is <null>.
         this.cells = new Cell[this.height][this.width];
     }
-    
+
     /**
-     * Computes the next generation of the cellular automaton
-     * from current states of cells.
+     * Computes the next generation of the cellular automaton from current
+     * states of cells.
      */
     public void computeNextGeneration() {
         for (int i = 0; i < this.height; ++i) {
@@ -66,7 +65,7 @@ public class Grid {
                 this.cells[i][j].saveNextState();
             }
         }
-        
+
         // Once all cells know their future state...
         for (int i = 0; i < this.height; ++i) {
             for (int j = 0; j < this.width; ++j) {
@@ -74,10 +73,10 @@ public class Grid {
             }
         }
     }
-    
+
     /**
-     * Initializes the cells of the grid.
-     * Cells are instanciated in the whole 2D grid.
+     * Initializes the cells of the grid. Cells are instanciated in the whole 2D
+     * grid.
      */
     public void initialize() {
         for (int i = 0; i < this.height; ++i) {
@@ -86,7 +85,7 @@ public class Grid {
                 this.cells[i][j].emerge(); // Compulsory
             }
         }
-        
+
         // Once all cells are initialized, compute their neighbours
         for (int i = 0; i < this.height; ++i) {
             for (int j = 0; j < this.width; ++j) {
@@ -94,11 +93,10 @@ public class Grid {
             }
         }
     }
-    
+
     /**
-     * Restarts the grid.
-     * To restart a grid, just restart each of its cells. Restarting
-     * a cell means assigning the cell its first state.
+     * Restarts the grid. To restart a grid, just restart each of its cells.
+     * Restarting a cell means assigning the cell its first state.
      */
     public void restart() {
         for (int i = 0; i < this.height; ++i) {
@@ -117,7 +115,7 @@ public class Grid {
      */
     public void draw(GUISimulator gui, int cellSize, boolean withSquares) {
         gui.reset();
-        
+
         if (withSquares) {
             // Draw horizontal lines
             for (int i = 0; i <= height; ++i) {
@@ -162,7 +160,7 @@ public class Grid {
         int shift = (int) Math.ceil(cellSize / 2);  // Drawn from the center
         int xPosition = i * cellSize + shift;
         int yPosition = j * cellSize + shift;
-        
+
         Color cellColor;
         Rectangle square;
 
@@ -225,18 +223,18 @@ public class Grid {
 
         this.width = width;
     }
-    
+
     private Automaton checkAutomaton(Automaton automaton) {
         if (automaton == null) {
             throw new IllegalArgumentException("Grid can't live alone");
         }
-        
+
         return automaton;
     }
-    
+
     /**
      * Cell getter.
-     * 
+     *
      * @param i
      * @param j
      * @return The cell at the position (i, j)
@@ -246,7 +244,7 @@ public class Grid {
             System.err.println(i + " " + j);
             throw new ArrayIndexOutOfBoundsException("Not in the grid...");
         }
-        
+
         return this.cells[i][j];
     }
 
