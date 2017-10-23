@@ -24,16 +24,13 @@ import java.util.Random;
 public class State {
 
     /**
-     * The id of the state.
-     * In a set of states for an automaton, the state's id
-     * should be unique. It greatly make the transition
-     * function easier.
+     * The id of the state. In a set of states for an automaton, the state's id
+     * should be unique. It greatly make the transition function easier.
      */
     private int id;
-    
+
     /**
-     * The (optional) name of the state.
-     * Used for printing. Default value: "".
+     * The (optional) name of the state. Used for printing. Default value: "".
      */
     private String name;
 
@@ -46,8 +43,8 @@ public class State {
     /**
      * State constructor {id, name, color}.
      *
-     * @param id    ID of the state
-     * @param name  Name of the state
+     * @param id ID of the state
+     * @param name Name of the state
      * @param color Color of the state
      */
     public State(int id, String name, Color color) {
@@ -58,8 +55,8 @@ public class State {
 
     /**
      * State constructor {id}.
-     * 
-     * @param id    ID of the state
+     *
+     * @param id ID of the state
      */
     public State(int id) {
         this(id, null, null);
@@ -68,8 +65,8 @@ public class State {
     /**
      * State constructor {id, name}.
      *
-     * @param id    ID of the state
-     * @param name  Name of the state
+     * @param id ID of the state
+     * @param name Name of the state
      */
     public State(int id, String name) {
         this(id, name, null);
@@ -78,7 +75,7 @@ public class State {
     /**
      * State constructor {id, color}.
      *
-     * @param id    ID of the state
+     * @param id ID of the state
      * @param color Color of the state
      */
     public State(int id, Color color) {
@@ -86,18 +83,16 @@ public class State {
     }
 
     /**
-     * ID setter.
-     * Compulsory.
-     * 
+     * ID setter. Compulsory.
+     *
      * @param id ID of the state.
      */
     private void setID(int id) {
         this.id = id;
     }
-    
+
     /**
-     * Name setter.
-     * If null, the name will be set to the default value "".
+     * Name setter. If null, the name will be set to the default value "".
      *
      * @param name Name of the state.
      */
@@ -106,8 +101,7 @@ public class State {
     }
 
     /**
-     * Color setter.
-     * If null, the color will be defined with random values.
+     * Color setter. If null, the color will be defined with random values.
      *
      * @param color Color of the state.
      */
@@ -130,14 +124,14 @@ public class State {
 
     /**
      * ID getter.
-     * 
+     *
      * @return The id of the state
      * @see State#id
      */
     public int getID() {
         return this.id;
     }
-    
+
     /**
      * Name getter.
      *
@@ -163,7 +157,7 @@ public class State {
         int hash = 3;
         hash = 37 * hash + this.id;
         hash = 37 * hash + Objects.hashCode(this.name);
-        
+
         return hash;
     }
 
@@ -179,7 +173,7 @@ public class State {
         if (this.id != other.id) {
             return false;
         }
-        
+
         return Objects.equals(this.name, other.name);
     }
 }

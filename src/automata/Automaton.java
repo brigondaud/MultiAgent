@@ -59,15 +59,14 @@ abstract public class Automaton implements Simulable {
     public Automaton(int height, int width) {
         this(height, width, -1);
     }
-    
+
     /**
-     * Initializes components of the automaton.
-     * Possible states, all cells
+     * Initializes components of the automaton. Possible states, all cells
      */
     private void initAutomatonComponents() {
         // The states, defined by child classes
         this.states = possibleStates();
-        
+
         // The cells inside the grid
         this.grid.initialize();
     }
@@ -80,7 +79,7 @@ abstract public class Automaton implements Simulable {
      * created. All the information needed to draw the grid and the cells stay
      * inside the automaton. That's why the first lines of this function force
      * subclasses to override initialization methods.
-     * 
+     *
      * See "Template method pattern".
      *
      * @return The GUI created and carried by the automaton
@@ -89,11 +88,11 @@ abstract public class Automaton implements Simulable {
         // Let's build the automaton before simulation.
         // Example of template method pattern.
         this.initAutomatonComponents();
-        
+
         int guiHeight = this.cellSize * this.grid.getHeight() + 5;
         int guiWidth = this.cellSize * this.grid.getWidth() + 5;
 
-	// As the automaton carries its GUI, the user only needs to
+        // As the automaton carries its GUI, the user only needs to
         // create the automaton and then simulate it when he wants.
         this.gui = new GUISimulator(guiWidth, guiHeight, Color.WHITE);
         this.gui.setSimulable(this);
@@ -138,10 +137,10 @@ abstract public class Automaton implements Simulable {
      *
      * in Conway's game of life. The states may depend on parameters according
      * to the automaton, so this method will be called in child classes only.
-     * 
-     * Possible states are shared by all cells. So they should be created
-     * in the automaton and passed to the cells then.
-     * 
+     *
+     * Possible states are shared by all cells. So they should be created in the
+     * automaton and passed to the cells then.
+     *
      * @return The list of possible states
      */
     abstract protected List<State> possibleStates();
