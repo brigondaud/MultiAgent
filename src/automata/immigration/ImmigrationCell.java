@@ -21,9 +21,7 @@ public class ImmigrationCell extends Cell {
 
 	@Override
 	protected final State initState() {
-		if (states.size() == 1)
-			return states.get(0);
-		int randomIdState = ThreadLocalRandom.current().nextInt(0, states.size()-1);
+		int randomIdState = ThreadLocalRandom.current().nextInt(0, states.size());
 		return states.get(randomIdState);
 	}
 

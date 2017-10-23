@@ -19,7 +19,7 @@ public class TestImmigrationGame {
 	 */
 	public static void main(String[] args) {
 
-		ImmigrationAutomaton immigrationGame = new ImmigrationAutomaton(35, 80, 10, 5);
+		ImmigrationAutomaton immigrationGame = new ImmigrationAutomaton(50, 50, 10, 5);
 		immigrationGame.simulate();
 	}
 
