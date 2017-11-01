@@ -1,8 +1,9 @@
 package simulator;
 
 import gui.*;
-import balls.GraphicalBalls;
-import java.util.Random;
+import balls.Balls;
+//import java.util.Random;
+import java.awt.Point;
 
 /**
  * Behavior for the simulator of balls
@@ -12,11 +13,22 @@ import java.util.Random;
  */
 public class BallsSimulator implements Simulable {
 
-	private GraphicalBalls balls;
+	/**
+	 * The group of balls to simulate.
+	 */
+	private Balls balls;
+	
+	/**
+	 * The balls velocity.
+	 */
+	private Point velocity;
 
 	public BallsSimulator(GUISimulator gui) {
-		this.balls = new GraphicalBalls(1, gui.getPanelWidth(), gui.getPanelHeight());
-		gui.addGraphicalElement(balls);
+		this.velocity = new Point(1, 7);
+		this.balls = new Balls(10, velocity, gui.getPanelWidth(), gui.getPanelHeight());
+		for (Oval ball: balls.getGraphicalBalls()) {
+			gui.addGraphicalElement(ball);
+		}
 	}
 
 	/**
@@ -24,9 +36,7 @@ public class BallsSimulator implements Simulable {
 	 */
 	@Override
 	public void next() {
-		Random randomMovement = new Random();
-		int rand = randomMovement.nextInt(2) + 1;
-		balls.translate(rand, rand);
+		balls.translate(velocity.x, velocity.y);
 	}
 
 	/**
