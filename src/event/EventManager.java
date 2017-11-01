@@ -1,5 +1,6 @@
 package event;
 
+import java.util.PriorityQueue;
 import event.Event;
 
 /**
@@ -18,20 +19,36 @@ public class EventManager {
 	private long currentDate;
 
 	/**
+	 * The events are stored in a priority queue based on their date.
+	 */
+	private PriorityQueue<Event> events;
+	
+	/**
+	 * Initiate the events priority queue.
+	 */
+	public EventManager() {
+		currentDate = 0;
+		events = new PriorityQueue<Event>();
+	}
+
+	/**
 	 * Add an event to the manager, that will be executed afterwards.
 	 * 
 	 * @param e
 	 *            The event to add.
 	 */
 	public void addEvent(Event e) {
-		// TODO
+		events.add(e);
 	}
 
 	/**
 	 * Increment the current date and executes all the event until the current date.
 	 */
 	public void next() {
-		// TODO
+		currentDate++;
+		while (!isFinished() && events.peek().getDate() <= currentDate) {
+			events.poll().execute();
+		}
 	}
 
 	/**
@@ -40,14 +57,16 @@ public class EventManager {
 	 * @return true if all the event have been executed
 	 */
 	public boolean isFinished() {
-		// TODO
+		if (events.size() != 0) {
+			return false;
+		}
 		return true;
 	}
-	
+
 	/**
 	 * Restart the event manager.
 	 */
 	public void restart() {
-		//TODO
+		events.clear();
 	}
 }
