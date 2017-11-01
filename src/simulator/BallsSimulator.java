@@ -2,6 +2,7 @@ package simulator;
 
 import gui.*;
 import balls.Balls;
+import balls.BouncingBalls;
 //import java.util.Random;
 import java.awt.Point;
 
@@ -22,10 +23,16 @@ public class BallsSimulator implements Simulable {
 	 * The balls velocity.
 	 */
 	private Point velocity;
+	
+	/**
+	 * The GUI in which the simulator is set.
+	 */
+	private GUISimulator gui;
 
 	public BallsSimulator(GUISimulator gui) {
-		this.velocity = new Point(1, 7);
-		this.balls = new Balls(10, velocity, gui.getPanelWidth(), gui.getPanelHeight());
+		this.gui = gui;
+		this.velocity = new Point(1, 1);
+		this.balls = new BouncingBalls(10, velocity, gui.getPanelWidth(), gui.getPanelHeight());
 		for (Oval ball: balls.getGraphicalBalls()) {
 			gui.addGraphicalElement(ball);
 		}
@@ -45,6 +52,10 @@ public class BallsSimulator implements Simulable {
 	@Override
 	public void restart() {
 		balls.reInit();
+		gui.reset();
+		for (Oval ball: balls.getGraphicalBalls()) {
+			gui.addGraphicalElement(ball);
+		}
 	}
 
 }

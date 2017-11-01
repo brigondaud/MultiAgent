@@ -28,14 +28,9 @@ public class Balls implements GraphicalElement {
 	 */
 	private Point[] balls;
 	/**
-	 * The init position for each ball.
+	 * The initial position for each ball.
 	 */
 	private Point[] initBalls;
-
-	/**
-	 * A same group of balls has the same velocity.
-	 */
-	private Point ballsVelocity;
 
 	/**
 	 * The graphic elements that represents the balls on screen.
@@ -53,10 +48,9 @@ public class Balls implements GraphicalElement {
 	public Balls(int ballNumber, Point initVelocity, int maxWidth, int maxHeight) {
 		this.balls = new Point[ballNumber];
 		this.initBalls = new Point[ballNumber];
-		this.ballsVelocity = new Point(initVelocity);
 		this.graphicalBalls = new Oval[ballNumber];
 
-		// Generating the balls ranomly
+		// Generating the balls randomly
 		Random coordsGenerator = new Random();
 		for (int i = 0; i < balls.length; i++) {
 			int initX = coordsGenerator.nextInt(maxWidth);
@@ -65,6 +59,14 @@ public class Balls implements GraphicalElement {
 			this.balls[i] = new Point(initX, initY);
 			this.graphicalBalls[i] = new Oval(initX, initY, drawColor, fillColor, ballSize);
 		}
+	}
+	
+	/**
+	 * Getter for the balls.
+	 * @return The balls.
+	 */
+	public Point[] getBalls() {
+		return this.balls;
 	}
 
 	/**
@@ -112,7 +114,7 @@ public class Balls implements GraphicalElement {
 	}
 
 	/**
-	 * Draws the ball on the gui.
+	 * Draws the ball on the GUI.
 	 */
 	@Override
 	public void paint(Graphics2D g2d) {
