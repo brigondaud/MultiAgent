@@ -15,7 +15,7 @@ public class BallsSimulator implements Simulable {
 	private GraphicalBalls balls;
 
 	public BallsSimulator(GUISimulator gui) {
-		this.balls = new GraphicalBalls(100, gui.getPanelWidth(), gui.getPanelHeight());
+		this.balls = new GraphicalBalls(1, gui.getPanelWidth(), gui.getPanelHeight());
 		gui.addGraphicalElement(balls);
 	}
 
@@ -25,7 +25,8 @@ public class BallsSimulator implements Simulable {
 	@Override
 	public void next() {
 		Random randomMovement = new Random();
-		balls.translate(randomMovement.nextInt(2), randomMovement.nextInt(2));
+		int rand = randomMovement.nextInt(2) + 1;
+		balls.translate(rand, rand);
 	}
 
 	/**

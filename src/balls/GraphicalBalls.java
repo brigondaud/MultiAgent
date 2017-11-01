@@ -12,7 +12,7 @@ import gui.Oval;
  * @author Baptiste Rigondaud
  *
  */
-public class GraphicalBalls extends Balls implements GraphicalElement {
+public class GraphicalBalls extends BouncingBalls implements GraphicalElement {
 
 	private static Color drawColor = Color.decode("#B5A3C4");
 	private static Color fillColor = Color.decode("#4D8FAC");
