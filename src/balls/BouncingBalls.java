@@ -23,12 +23,12 @@ public class BouncingBalls extends Balls {
 	 * The initial direction of every ball.
 	 */
 	private Direction initDirection;
-	
+
 	/**
 	 * The maximum width where the balls can go.
 	 */
 	private int maxWidth;
-	
+
 	/**
 	 * The maximum height where the ball can go.
 	 */
@@ -56,7 +56,7 @@ public class BouncingBalls extends Balls {
 			ballsDirections[i] = initDirection;
 		}
 	}
-	
+
 	/**
 	 * Restart all the balls and give them the initial direction.
 	 */
@@ -66,6 +66,18 @@ public class BouncingBalls extends Balls {
 		for (int i = 0; i < ballsDirections.length; i++) {
 			ballsDirections[i] = initDirection;
 		}
+	}
+	
+	/**
+	 * Prints all the balls as a couple of coordinates.
+	 */
+	@Override
+	public String toString() {
+		String ballsString = "";
+		for (int i = 0; i < getBalls().length; i++) {
+			ballsString += "\n" + getBalls()[i].toString() + "Direction: " + ballsDirections[i].toString();
+		}
+		return ballsString;
 	}
 
 	/**
@@ -80,39 +92,41 @@ public class BouncingBalls extends Balls {
 			case TOPLEFT:
 				dx = -dx;
 				dy = -dy;
-				if ((ball.getX() - dx) <= 0) {
+				if ((ball.x - dx) < 0) {
 					ballsDirections[i] = Direction.TOPRIGHT;
-					dy = -dy;
-				} else {
-					ballsDirections[i] = Direction.BOTTOMLEFT;
 					dx = -dx;
+				} else if (ball.y - dy < 0) {
+					ballsDirections[i] = Direction.BOTTOMLEFT;
+					System.out.println("Original dy: " + dy);
+					dy = -dy;
+					System.out.println("Changing dy:" + dy);
 				}
 				break;
 			case TOPRIGHT:
 				dy = -dy;
-				if ((ball.getX() - dx) <= 0) {
+				if ((ball.y - dy) < 0) {
 					ballsDirections[i] = Direction.BOTTOMRIGHT;
 					dy = -dy;
-				} else {
+				} else if (ball.x + dx > maxWidth) {
 					ballsDirections[i] = Direction.TOPLEFT;
 					dx = -dx;
 				}
 				break;
 			case BOTTOMLEFT:
 				dx = -dx;
-				if ((ball.getY() - dy) <= 0) {
+				if ((ball.y - dy) < 0) {
 					ballsDirections[i] = Direction.BOTTOMRIGHT;
 					dx = -dx;
-				} else {
+				} else if (ball.y + dy > maxHeight) {
 					ballsDirections[i] = Direction.TOPLEFT;
 					dy = -dy;
 				}
 				break;
 			case BOTTOMRIGHT:
-				if ((ball.getX() + dx) >= maxWidth) {
+				if ((ball.x + dx) > maxWidth) {
 					ballsDirections[i] = Direction.BOTTOMLEFT;
 					dx = -dx;
-				} else {
+				} else if (ball.y + dy > maxHeight) {
 					ballsDirections[i] = Direction.TOPRIGHT;
 					dy = -dy;
 				}
