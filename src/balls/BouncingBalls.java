@@ -67,15 +67,15 @@ public class BouncingBalls extends Balls {
 			ballsDirections[i] = initDirection;
 		}
 	}
-	
+
 	/**
 	 * Prints all the balls as a couple of coordinates.
 	 */
 	@Override
 	public String toString() {
 		String ballsString = "";
-		for (int i = 0; i < getBalls().length; i++) {
-			ballsString += "\n" + getBalls()[i].toString() + "Direction: " + ballsDirections[i].toString();
+		for (int i = 0; i < getBallNumber(); i++) {
+			ballsString += "\n" + getBall(i).toString() + "Direction: " + ballsDirections[i].toString();
 		}
 		return ballsString;
 	}
@@ -85,46 +85,48 @@ public class BouncingBalls extends Balls {
 	 */
 	@Override
 	public void translate(int dx, int dy) {
-		for (int i = 0; i < getBalls().length; i++) {
-			Point ball = getBalls()[i];
+		int initDx = dx;
+		int initDy = dy;
+		for (int i = 0; i < getBallNumber(); i++) {
+			Point ball = getBall(i);
 			Direction dir = ballsDirections[i];
-			switch (dir) {
+			switch (dir) { // Looking for the possible bounces for each direction
 			case TOPLEFT:
 				dx = -dx;
 				dy = -dy;
-				if ((ball.x + dx) < 0) {
+				if ((ball.x + dx) < 0) { // Left side bounce
 					ballsDirections[i] = Direction.TOPRIGHT;
 					dx = -dx;
-				} else if (ball.y + dy < 0) {
+				} else if (ball.y + dy < 0) { // Top side bounce
 					ballsDirections[i] = Direction.BOTTOMLEFT;
 					dy = -dy;
 				}
 				break;
 			case TOPRIGHT:
 				dy = -dy;
-				if ((ball.y + dy) < 0) {
+				if ((ball.y + dy) < 0) { // Top side bounce
 					ballsDirections[i] = Direction.BOTTOMRIGHT;
 					dy = -dy;
-				} else if (ball.x + dx > maxWidth) {
+				} else if (ball.x + dx > maxWidth) { // Right side bounce
 					ballsDirections[i] = Direction.TOPLEFT;
 					dx = -dx;
 				}
 				break;
 			case BOTTOMLEFT:
 				dx = -dx;
-				if ((ball.x + dx) < 0) {
+				if ((ball.x + dx) < 0) { // Left side bounce
 					ballsDirections[i] = Direction.BOTTOMRIGHT;
 					dx = -dx;
-				} else if (ball.y + dy > maxHeight) {
+				} else if (ball.y + dy > maxHeight) { // Bottom side bounce
 					ballsDirections[i] = Direction.TOPLEFT;
 					dy = -dy;
 				}
 				break;
 			case BOTTOMRIGHT:
-				if ((ball.x + dx) > maxWidth) {
+				if ((ball.x + dx) > maxWidth) { // Right side bounce
 					ballsDirections[i] = Direction.BOTTOMLEFT;
 					dx = -dx;
-				} else if (ball.y + dy > maxHeight) {
+				} else if (ball.y + dy > maxHeight) { // Bottom side bounce
 					ballsDirections[i] = Direction.TOPRIGHT;
 					dy = -dy;
 				}
@@ -132,8 +134,11 @@ public class BouncingBalls extends Balls {
 			case STILL:
 				break;
 			}
-			getBalls()[i].translate(dx, dy);
-			getGraphicalBalls()[i].translate(dx, dy);
+			ball.translate(dx, dy);
+			getGraphicalBall(i).translate(dx, dy);
+			// Reset the move for the next ball
+			dx = initDx;
+			dy = initDy;
 		}
 	}
 }

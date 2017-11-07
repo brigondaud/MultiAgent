@@ -24,9 +24,15 @@ public class Balls implements GraphicalElement {
 	private static int ballSize = 15;
 
 	/**
+	 * The number of balls.
+	 */
+	private int ballNumber;
+
+	/**
 	 * The balls are represented as Points.
 	 */
 	private Point[] balls;
+
 	/**
 	 * The initial position for each ball.
 	 */
@@ -46,6 +52,7 @@ public class Balls implements GraphicalElement {
 	 * @param maxHeight
 	 */
 	public Balls(int ballNumber, Point initVelocity, int maxWidth, int maxHeight) {
+		this.ballNumber = ballNumber;
 		this.balls = new Point[ballNumber];
 		this.initBalls = new Point[ballNumber];
 		this.graphicalBalls = new Oval[ballNumber];
@@ -60,22 +67,42 @@ public class Balls implements GraphicalElement {
 			this.graphicalBalls[i] = new Oval(initX, initY, drawColor, fillColor, ballSize);
 		}
 	}
-	
+
 	/**
-	 * Getter for the balls.
-	 * @return The balls.
+	 * Getter for numberBall.
+	 * 
+	 * @return the number of ball
 	 */
-	public Point[] getBalls() {
-		return this.balls;
+	public int getBallNumber() {
+		return this.ballNumber;
 	}
 
 	/**
-	 * Getter for the graphical balls.
+	 * Getter for the i ball.
 	 * 
-	 * @return The graphical balls to register them in the GUI.
+	 * @return The i ball.
+	 * @throws IllegalArgumentException
+	 *             if i is not a correct index
 	 */
-	public Oval[] getGraphicalBalls() {
-		return this.graphicalBalls;
+	public Point getBall(int i) {
+		if (i > balls.length) {
+			throw new IllegalArgumentException("index out of range");
+		}
+		return this.balls[i];
+	}
+
+	/**
+	 * Getter for the i graphical ball.
+	 * 
+	 * @return The i graphical ball to register them in the GUI.
+	 * @throws IllegalArgumentException
+	 *             if i is not a correct index
+	 */
+	public Oval getGraphicalBall(int i) {
+		if (i > balls.length) {
+			throw new IllegalArgumentException("index out of range");
+		}
+		return this.graphicalBalls[i];
 	}
 
 	/**
