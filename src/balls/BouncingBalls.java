@@ -92,19 +92,17 @@ public class BouncingBalls extends Balls {
 			case TOPLEFT:
 				dx = -dx;
 				dy = -dy;
-				if ((ball.x - dx) < 0) {
+				if ((ball.x + dx) < 0) {
 					ballsDirections[i] = Direction.TOPRIGHT;
 					dx = -dx;
-				} else if (ball.y - dy < 0) {
+				} else if (ball.y + dy < 0) {
 					ballsDirections[i] = Direction.BOTTOMLEFT;
-					System.out.println("Original dy: " + dy);
 					dy = -dy;
-					System.out.println("Changing dy:" + dy);
 				}
 				break;
 			case TOPRIGHT:
 				dy = -dy;
-				if ((ball.y - dy) < 0) {
+				if ((ball.y + dy) < 0) {
 					ballsDirections[i] = Direction.BOTTOMRIGHT;
 					dy = -dy;
 				} else if (ball.x + dx > maxWidth) {
@@ -114,7 +112,7 @@ public class BouncingBalls extends Balls {
 				break;
 			case BOTTOMLEFT:
 				dx = -dx;
-				if ((ball.y - dy) < 0) {
+				if ((ball.x + dx) < 0) {
 					ballsDirections[i] = Direction.BOTTOMRIGHT;
 					dx = -dx;
 				} else if (ball.y + dy > maxHeight) {

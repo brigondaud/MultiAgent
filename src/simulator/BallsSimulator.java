@@ -31,7 +31,7 @@ public class BallsSimulator implements Simulable {
 
 	public BallsSimulator(GUISimulator gui) {
 		this.gui = gui;
-		this.velocity = new Point(1, 1);
+		this.velocity = new Point(7, 10);
 		this.balls = new BouncingBalls(1, velocity, gui.getPanelWidth(), gui.getPanelHeight());
 		for (Oval ball: balls.getGraphicalBalls()) {
 			gui.addGraphicalElement(ball);
@@ -44,7 +44,6 @@ public class BallsSimulator implements Simulable {
 	@Override
 	public void next() {
 		balls.translate(velocity.x, velocity.y);
-		System.out.println(balls);
 	}
 
 	/**
