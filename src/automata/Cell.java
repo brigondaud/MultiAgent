@@ -114,7 +114,7 @@ abstract public class Cell {
      *
      * @see Cell#saveState
      */
-    public final void changeState() {
+    public void changeState() {
         this.state = this.saveState;
     }
 
@@ -178,6 +178,15 @@ abstract public class Cell {
      */
     public void setState(State state) {
         this.state = state;
+    }
+    
+    /**
+     * Save state setter.
+     * 
+     * @param saveState The save state to assign to the cell.
+     */
+    public void setSaveState(State saveState) {
+        this.saveState = saveState;
     }
 
     /**
