@@ -30,7 +30,7 @@ public class BallEvent extends Event {
 	private EventManager events;
 
 	/**
-	 * Init the event with a date and the balls on which the event can execute the
+	 * Initiate the event with a date and the balls on which the event can execute the
 	 * movement, with a given velocity.
 	 * 
 	 * @param date

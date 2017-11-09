@@ -13,7 +13,7 @@ public abstract class Event implements Comparable<Event> {
 	private long date;
 
 	/**
-	 * Init the event with a given date.
+	 * Initiate the event with a given date.
 	 * 
 	 * @param date
 	 */
