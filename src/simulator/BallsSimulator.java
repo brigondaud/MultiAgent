@@ -1,8 +1,11 @@
 package simulator;
 
 import gui.*;
-import balls.GraphicalBalls;
-import java.util.Random;
+import balls.Balls;
+import balls.BouncingBalls;
+import java.awt.Point;
+import event.EventManager;
+import event.BallEvent;
 
 /**
  * Behavior for the simulator of balls
@@ -12,11 +15,36 @@ import java.util.Random;
  */
 public class BallsSimulator implements Simulable {
 
-	private GraphicalBalls balls;
+	/**
+	 * The group of balls to simulate.
+	 */
+	private Balls balls;
+
+	/**
+	 * The balls velocity.
+	 */
+	private Point velocity;
+
+	/**
+	 * The GUI in which the simulator is set.
+	 */
+	private GUISimulator gui;
+
+	/**
+	 * The event manager that registers the balls movement.
+	 */
+	private EventManager events;
 
 	public BallsSimulator(GUISimulator gui) {
-		this.balls = new GraphicalBalls(100, gui.getPanelWidth(), gui.getPanelHeight());
-		gui.addGraphicalElement(balls);
+		this.gui = gui;
+		this.velocity = new Point(5, 5);
+		this.balls = new BouncingBalls(10, velocity, gui.getPanelWidth(), gui.getPanelHeight());
+		for (int i = 0; i < balls.getBallNumber(); i++) {
+			gui.addGraphicalElement(balls.getGraphicalBall(i));
+		}
+		this.events = new EventManager();
+		// Adds an initial event to make the balls move when the simulation starts.
+		events.addEvent(new BallEvent(1, events, balls, velocity));
 	}
 
 	/**
@@ -24,8 +52,7 @@ public class BallsSimulator implements Simulable {
 	 */
 	@Override
 	public void next() {
-		Random randomMovement = new Random();
-		balls.translate(randomMovement.nextInt(2), randomMovement.nextInt(2));
+		events.next();
 	}
 
 	/**
@@ -34,6 +61,10 @@ public class BallsSimulator implements Simulable {
 	@Override
 	public void restart() {
 		balls.reInit();
+		gui.reset();
+		for (int i = 0; i < balls.getBallNumber(); i++) {
+			gui.addGraphicalElement(balls.getGraphicalBall(i));
+		}
 	}
 
 }
