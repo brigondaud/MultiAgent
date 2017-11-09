@@ -1,106 +1,76 @@
 package boids;
 
-import java.awt.geom.Point2D;
-import java.awt.geom.Point2D.Float;
+import boids.utils.Vector2D;
+import gui.Oval;
+import java.awt.Color;
 
 /**
  * Represents a boid that evolves within a 2D boid simulator.
  * 
  * @author Baptiste Rigondaud
- *
+ * @version 1.0
  */
 public class Boid {
+    
+    /**
+     * The (x, y)-location at the creation of the boid.
+     */
+    private final Vector2D initLocation;
+    
+    /**
+     * The (x, y)-location of the boid in the 2D space.
+     */
+    private Vector2D location;
+    
+    /**
+     * The (x, y)-velocity of the boid.
+     */
+    private Vector2D velocity;
+    
+    /**
+     * The (x, y)-acceleration of the boid.
+     */
+    private Vector2D acceleration;
+    
+    /**
+     * The circle to be drawn to represent the boid.
+     */
+    private Oval icon;
+    
+    private static final int ICON_SIZE = 10;
 
-	/**
-	 * The boid's initial position.
-	 */
-	private Point2D.Float initPosition;
+    
+    public Boid(int x, int y, Color fillColor) {
+        this.initLocation = new Vector2D(x, y);
+        this.restart();
+        
+        // Draw the circle to represent the boid
+        this.icon = new Oval(
+            this.location.getX(), this.location.getY(),
+            Color.gray, fillColor, ICON_SIZE
+        );
+    }
+    
+    
+    public final void restart() {
+        this.acceleration = new Vector2D(0, 0);
+        this.velocity = new Vector2D(0, 0);
+        this.location = new Vector2D(this.initLocation);
+    }
+    
+    public Vector2D getLocation() {
+        return location;
+    }
 
-	/**
-	 * The boid's current position.
-	 */
-	private Point2D.Float position;
+    public Vector2D getVelocity() {
+        return velocity;
+    }
 
-	/**
-	 * The boid's velocity.
-	 */
-	private Point2D.Float velocity;
+    public Vector2D getAcceleration() {
+        return acceleration;
+    }
 
-	/**
-	 * The maximum width where the boid can move.
-	 */
-	private int maxWidth;
-
-	/**
-	 * The maximum height where the boid can move.
-	 */
-	private int maxHeight;
-
-	/**
-	 * Creates a boid which will evolve in a given space with maximum width and
-	 * height.
-	 * 
-	 * @param maxWidth
-	 *            The maximum width.
-	 * @param maxHeight
-	 *            The maximum height.
-	 */
-	public Boid(int maxWidth, int maxHeight) {
-		setMaxWidth(maxWidth);
-		setMaxHeight(maxHeight);
-	}
-
-	/**
-	 * Setter for the maxWidth for a boid.
-	 * 
-	 * @param width
-	 * @throws IllegalArgumentException
-	 *             if the width is not strictly positive.
-	 */
-	private void setMaxWidth(int width) {
-		if (width <= 0) {
-			throw new IllegalArgumentException("width must be strictly positive");
-		}
-		this.maxWidth = width;
-	}
-
-	/**
-	 * Setter for the maxHeight for a boid
-	 * 
-	 * @param height
-	 * @throws IllegalArgumentException
-	 *             if the height is not strictly positive.
-	 */
-	private void setMaxHeight(int height) {
-		if (height <= 0) {
-			throw new IllegalArgumentException("height must be strictly positive");
-		}
-		this.maxHeight = height;
-	}
-
-	/**
-	 * Getter for the boid's velocity.
-	 * 
-	 * @return The boid's velocity.
-	 */
-	public Point2D.Float getVelocity() {
-		return this.velocity;
-	}
-
-	/**
-	 * Setter for the boid's velocity.
-	 * 
-	 * @param velocity
-	 */
-	public void setVelocity(Point2D.Float velocity) {
-		this.velocity = velocity;
-	}
-
-	/**
-	 * Reset the boid to its initial position.
-	 */
-	public void reset() {
-		this.position = initPosition;
-	}
-
+    public Oval getIcon() {
+        return icon;
+    }
 }

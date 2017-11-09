@@ -19,37 +19,35 @@ import java.util.concurrent.ThreadLocalRandom;
 public class SchellingCell extends Cell implements Comparable {
 
     /**
-     * Set of vacants cells.
-     * Give a reference to the cell so the trade is possible.
+     * Set of vacants cells. Give a reference to the cell so the trade is
+     * possible.
      */
     private final SchellingSet<SchellingCell> vacants;
-    
+
     /**
-     * Thresold to trigger a cell move.
-     * Give a reference to the cell so it can know if it has to move.
+     * Thresold to trigger a cell move. Give a reference to the cell so it can
+     * know if it has to move.
      */
     private final int thresold;
-    
-    
+
     public SchellingCell(Grid grid, int i, int j, List<State> states,
-                         SchellingSet<SchellingCell> vacants, int thresold) {
+        SchellingSet<SchellingCell> vacants, int thresold) {
         super(grid, i, j, states);
-        
+
         this.vacants = vacants;
         this.thresold = thresold;
     }
 
-    
     @Override
     protected State initState() {
         int isEmpty = ThreadLocalRandom.current().nextInt(0, 100);
-        
+
         // There should be enough vacant cells (cf. Schelling p. 12)
         if (isEmpty < 30) {
             this.vacants.add(this);
             return states.get(0);
         }
-        
+
         int whatColor = ThreadLocalRandom.current().nextInt(1, states.size() - 1);
         return states.get(whatColor);
     }
@@ -64,25 +62,24 @@ public class SchellingCell extends Cell implements Comparable {
                 return this.saveState;
             }
         }
-        
+
         // If the cell isn't empty, check its neighbours.
         int strangers = 8 - this.countNeighbours(states.get(0)) // No neighbour
-                          - this.countNeighbours(state);        // Same color
-        
+            - this.countNeighbours(state);        // Same color
+
         // The cell has to move.
         if (strangers > thresold) {
             SchellingCell newFamily = vacants.removeRandom();
-            
+
             if (newFamily != null) {
                 newFamily.setSaveState(state);
                 return states.get(states.size() - 1);
             }
         }
-        
+
         return state;
     }
 
-    
     /**
      * TODO. Commentaires ici.
      */
@@ -90,26 +87,28 @@ public class SchellingCell extends Cell implements Comparable {
     public void changeState() {
         if (this.saveState.equals(states.get(states.size() - 1))) {
             this.setSaveState(states.get(0));
-            
+
             this.vacants.add(this);
         }
-        
+
         super.changeState();
     }
 
     @Override
     public int compareTo(Object t) {
-        if (this == t)
+        if (this == t) {
             return 0;
-        
+        }
+
         final SchellingCell other = (SchellingCell) t;
-        
+
         // Compare cells with coordinates
-        if (this.i < other.i)
+        if (this.i < other.i) {
             return -1;
-        else if (this.i > other.i)
+        } else if (this.i > other.i) {
             return 1;
-        else
+        } else {
             return (this.j < other.j) ? -1 : 1;
+        }
     }
 }

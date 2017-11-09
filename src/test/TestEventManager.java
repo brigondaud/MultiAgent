@@ -1,28 +1,29 @@
 package test;
 
-import event.EventManager;
-import event.MessageEvent;
+import events.EventManager;
+import events.MessageEvent;
 
 public class TestEventManager {
-	public static void main(String[] args) throws InterruptedException {
 
-		EventManager manager = new EventManager();
+    public static void main(String[] args) throws InterruptedException {
 
-		// PING all the two steps
-		for (int i = 2; i <= 10; i += 2) {
-			manager.addEvent(new MessageEvent(i, " [ PING ] "));
-		}
+        EventManager manager = new EventManager();
 
-		// PONG all the three steps
-		for (int i = 3; i <= 9; i += 3) {
-			manager.addEvent(new MessageEvent(i, " [ PONG ] "));
-		}
+        // PING all the two steps
+        for (int i = 2; i <= 10; i += 2) {
+            manager.addEvent(new MessageEvent(i, " [ PING ] "));
+        }
 
-		while (!manager.isFinished()) {
-			manager.next();
-			Thread.sleep(1000);
-		}
+        // PONG all the three steps
+        for (int i = 3; i <= 9; i += 3) {
+            manager.addEvent(new MessageEvent(i, " [ PONG ] "));
+        }
 
-	}
+        while (!manager.isFinished()) {
+            manager.next();
+            Thread.sleep(1000);
+        }
+
+    }
 
 }

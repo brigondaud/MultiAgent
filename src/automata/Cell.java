@@ -2,6 +2,7 @@ package automata;
 
 import java.util.ArrayList;
 import java.util.List;
+import systems.Agent;
 
 /**
  * Represents a cell evolving in a grid.
@@ -13,7 +14,7 @@ import java.util.List;
  * @author Aurélien Pepin
  * @version 1.0
  */
-abstract public class Cell {
+abstract public class Cell extends Agent {
 
     /**
      * The grid in which the cell evolves.
@@ -179,10 +180,10 @@ abstract public class Cell {
     public void setState(State state) {
         this.state = state;
     }
-    
+
     /**
      * Save state setter.
-     * 
+     *
      * @param saveState The save state to assign to the cell.
      */
     public void setSaveState(State saveState) {
