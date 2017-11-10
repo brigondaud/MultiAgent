@@ -105,26 +105,6 @@ abstract public class Automaton extends System {
     }
 
     /**
-     * Grid getter.
-     *
-     * @see Automaton#grid
-     * @return grid
-     */
-    public Grid getGrid() {
-        return this.grid;
-    }
-
-    /**
-     * CellSize getter.
-     *
-     * @see Automaton#cellSize
-     * @return cellSize
-     */
-    public int getCellSize() {
-        return this.cellSize;
-    }
-
-    /**
      * Cell size setter.
      *
      * @see Automaton#cellSize
@@ -136,6 +116,15 @@ abstract public class Automaton extends System {
         } else {
             this.cellSize = 20;
         }
+    }
+    
+    /**
+     * Execution of the automaton event.
+     */
+    @Override
+    public void executeEvent() {
+    	grid.computeNextGeneration();
+        grid.draw(gui, cellSize, false);
     }
 
     @Override
