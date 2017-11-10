@@ -1,6 +1,7 @@
 package boids;
 
 import boids.rules.Rule;
+import boids.utils.Vector2D;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,7 +56,22 @@ public class BoidGroup {
      * Update the group of boids with associated rules.
      */
     public void update() {
-        // TODO
+        Vector2D newAcceleration;
+        
+        // The new boid acceleration will depend on rules.
+        for (Boid boid : boids) {
+            newAcceleration = new Vector2D(0, 0);
+            
+            for (Rule rule : rules) {
+                newAcceleration.add(rule.applyRule(boid));
+            }
+            
+            newAcceleration.divideBy(rules.size());
+            boid.setAcceleration(newAcceleration);
+            
+            // Once the acceleration is set, the boid is "updatable".
+            boid.update();
+        }
     }
     
     /**

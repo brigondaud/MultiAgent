@@ -16,6 +16,7 @@ public class TestBoidSystem {
         
         BoidSystem bs = new BoidSystem(300, 300);
         bs.addGroupOf(10);
+        bs.addGroupOf(15);
         
         bs.simulate();
     }

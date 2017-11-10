@@ -69,20 +69,22 @@ public class BoidSystem extends System {
         BoidGroup theGroup = new BoidGroup(numberOfBoids, width, height);
         flocks.add(theGroup);
         
-        this.events.addEvent(new BoidEvent(1, theGroup));
+        this.events.addEvent(new BoidEvent(1, this, theGroup));
         return theGroup;
     }
 
     @Override
     public void next() {
         this.events.next();
-        // TODO. Create a new event with flock.getDelay()
     }
 
     @Override
     public void restart() {
         this.events.restart();
-        // TODO. Restart aussi les groups.
+        
+        for (BoidGroup flock : flocks)
+            flock.restart();
+        
         // TODO. Reregister les icons ?
     }
     

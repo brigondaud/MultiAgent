@@ -46,11 +46,18 @@ public class Boid {
         
         // Draw the circle to represent the boid
         this.icon = new Oval(
-            this.location.getX(), this.location.getY(),
+            (int) this.location.getX(), (int) this.location.getY(),
             Color.gray, fillColor, ICON_SIZE
         );
     }
     
+    
+    public final void update() {
+        this.velocity.add(this.acceleration);
+        this.location.add(this.velocity);
+        
+        // TODO LE DESSIN PARLA
+    }
     
     public final void restart() {
         this.acceleration = new Vector2D(0, 0);
@@ -65,9 +72,16 @@ public class Boid {
     public Vector2D getVelocity() {
         return velocity;
     }
-
+    
     public Vector2D getAcceleration() {
         return acceleration;
+    }
+    
+    public void setAcceleration(Vector2D newAcc) {
+        if (newAcc == null)
+            throw new IllegalArgumentException("No null vector!");
+        
+        this.acceleration = newAcc;
     }
 
     public Oval getIcon() {

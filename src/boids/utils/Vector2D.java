@@ -12,12 +12,12 @@ public class Vector2D {
     /**
      * The x-coordinate for the 2D vector.
      */
-    private int x;
+    private double x;
     
     /**
      * The y-coordinate for the 2D Vector.
      */
-    private int y;
+    private double y;
 
     /**
      * Constructor.
@@ -25,7 +25,7 @@ public class Vector2D {
      * @param x The x-coordinate
      * @param y The y-coordinate
      */
-    public Vector2D(int x, int y) {
+    public Vector2D(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -36,24 +36,40 @@ public class Vector2D {
      * @param other The boid to copy.
      */
     public Vector2D(Vector2D other) {
+        if (other == null)
+            throw new IllegalArgumentException("No null vector!");
+        
         this.x = other.x;
         this.y = other.y;
     }
     
+    
+    public void add(Vector2D other) {
+        if (other == null)
+            return;
+        
+        this.x += other.x;
+        this.y += other.y;
+    }
+    
+    public void divideBy(double factor) {        
+        this.x /= factor;
+        this.y /= factor;
+    }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 }

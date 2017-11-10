@@ -54,5 +54,4 @@ public class BallEvent extends Event {
         balls.translate(velocity.x, velocity.y);
         events.addEvent(new BallEvent(getDate() + 1, events, balls, velocity));
     }
-
 }
