@@ -42,6 +42,7 @@ public abstract class Event implements Comparable<Event> {
      * @return 1, 0 or -1 to create an order between events
      * @throws NullPointerException if the event to compare with is null.
      */
+    @Override
     public int compareTo(Event e) {
         if (e == null) {
             throw new NullPointerException("Can't compare with null pointer.");

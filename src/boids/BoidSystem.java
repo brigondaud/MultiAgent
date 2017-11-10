@@ -1,5 +1,6 @@
 package boids;
 
+import events.BoidEvent;
 import gui.GUISimulator;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class BoidSystem extends System {
      * The flocks (groups) of boids.
      * Each flock may have its own rules.
      */
-    private List<BoidGroup> flocks;
+    private final List<BoidGroup> flocks;
     
     /**
      * The width of the window, in pixels.
@@ -68,17 +69,21 @@ public class BoidSystem extends System {
         BoidGroup theGroup = new BoidGroup(numberOfBoids, width, height);
         flocks.add(theGroup);
         
+        this.events.addEvent(new BoidEvent(1, theGroup));
         return theGroup;
     }
 
     @Override
     public void next() {
-        throw new UnsupportedOperationException("Not supported yet."); // OVR
+        this.events.next();
+        // TODO. Create a new event with flock.getDelay()
     }
 
     @Override
     public void restart() {
-        throw new UnsupportedOperationException("Not supported yet."); // OVR
+        this.events.restart();
+        // TODO. Restart aussi les groups.
+        // TODO. Reregister les icons ?
     }
     
     /**

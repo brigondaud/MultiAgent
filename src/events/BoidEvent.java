@@ -28,8 +28,6 @@ public class BoidEvent extends Event {
  
    @Override
     public void execute() {
-        throw new UnsupportedOperationException("Not supported yet."); // OVR
-        // TODO this.flock.update();
+        this.flock.update();
     }
-    
 }

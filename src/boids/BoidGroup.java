@@ -50,8 +50,19 @@ public class BoidGroup {
         this.populate(numberOfBoids);
         this.rules = new ArrayList<>();
     }
+
+    /**
+     * Update the group of boids with associated rules.
+     */
+    public void update() {
+        // TODO
+    }
     
-    
+    /**
+     * Fill the new boid group with boids.
+     * 
+     * @param numberOfBoids The number of boids to create.
+     */
     public final void populate(int numberOfBoids) {
         if (numberOfBoids < 1)
             throw new IllegalArgumentException("No empty group of boids.");
@@ -76,7 +87,7 @@ public class BoidGroup {
         
         // No need to get a mutable list now.
         this.boids = Arrays.asList(futureBoids);
-    }    
+    } 
     
     /**
      * Restarts all boids inside the group.

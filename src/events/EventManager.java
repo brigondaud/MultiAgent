@@ -21,14 +21,14 @@ public class EventManager {
     /**
      * The events are stored in a priority queue based on their date.
      */
-    private PriorityQueue<Event> events;
+    private final PriorityQueue<Event> events;
 
     /**
      * Initiate the events priority queue.
      */
     public EventManager() {
         currentDate = 0;
-        events = new PriorityQueue<Event>();
+        events = new PriorityQueue<>();
     }
 
     /**
@@ -57,10 +57,7 @@ public class EventManager {
      * @return true if all the event have been executed
      */
     public boolean isFinished() {
-        if (events.size() != 0) {
-            return false;
-        }
-        return true;
+        return events.size() == 0;
     }
 
     /**
