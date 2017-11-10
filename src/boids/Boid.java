@@ -53,10 +53,18 @@ public class Boid {
     
     
     public final void update() {
-        this.velocity.add(this.acceleration);
-        this.location.add(this.velocity);
+        Vector2D newLoc = new Vector2D(0, 0);
         
-        // TODO LE DESSIN PARLA
+        this.velocity.add(this.acceleration);   // Speed rule application
+        newLoc.add(this.velocity);
+        
+        // Move the icon
+        this.icon.translate(
+            (int) newLoc.getX(),
+            (int) newLoc.getY()
+        );
+        
+        this.location.add(this.velocity);       // Location rule application
     }
     
     public final void restart() {

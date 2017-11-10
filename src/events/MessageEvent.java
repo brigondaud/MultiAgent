@@ -1,7 +1,5 @@
 package events;
 
-import events.Event;
-
 public class MessageEvent extends Event {
 
     private String message;

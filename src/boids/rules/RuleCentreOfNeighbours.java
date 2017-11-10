@@ -45,7 +45,21 @@ public class RuleCentreOfNeighbours extends Rule {
     
     @Override
     public Vector2D applyRule(Boid boid) {
-        throw new UnsupportedOperationException("Not supported yet."); // OVR
+        Vector2D force = new Vector2D(0, 0);
+        
+        for (Boid neighbour : flock.getBoids()) {
+            if (neighbour != boid) {
+                force.add(neighbour.getLocation());
+            }
+        }
+        
+        if (flock.size() > 1) {
+            force.divideBy(flock.size() - 1);
+            force.minus(boid.getLocation());
+            force.divideBy(100);
+        }
+        
+        return force;
     }
     
     private void setDistance(double distance) {

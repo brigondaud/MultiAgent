@@ -14,7 +14,7 @@ public class TestBoidSystem {
      */
     public static void main(String[] args) {
         
-        BoidSystem bs = new BoidSystem(300, 300);
+        BoidSystem bs = new BoidSystem(700, 400);
         bs.addGroupOf(10);
         bs.addGroupOf(15);
         

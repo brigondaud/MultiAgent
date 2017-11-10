@@ -41,5 +41,6 @@ public class BoidEvent extends Event {
         BoidEvent nextEvent = new BoidEvent(this.getDate() + this.flock.getDelay(), system, flock);
         
         this.system.getEvents().addEvent(nextEvent);
+        this.system.executeEvent();
     }
 }

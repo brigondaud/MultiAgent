@@ -124,4 +124,9 @@ public class BoidSystem extends System {
             for (Boid b : bg.getBoids())
                 this.gui.addGraphicalElement(b.getIcon());
     }
+
+    @Override
+    public void executeEvent() {
+        ; // Useful? TODO.
+    }
 }

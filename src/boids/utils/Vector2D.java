@@ -52,6 +52,14 @@ public class Vector2D {
         this.y += other.y;
     }
     
+    public void minus(Vector2D other) {
+        if (other == null)
+            return;
+        
+        this.x -= other.x;
+        this.y -= other.y;
+    }
+    
     public void divideBy(double factor) {        
         this.x /= factor;
         this.y /= factor;
@@ -71,5 +79,10 @@ public class Vector2D {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Vector2D{" + "x: " + x + ", y: " + y + '}';
     }
 }

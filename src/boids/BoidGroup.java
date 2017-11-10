@@ -1,6 +1,7 @@
 package boids;
 
 import boids.rules.Rule;
+import boids.rules.RuleCentreOfNeighbours;
 import boids.utils.Vector2D;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -50,6 +51,9 @@ public class BoidGroup {
         
         this.populate(numberOfBoids);
         this.rules = new ArrayList<>();
+        
+        // TODO. To move, not to be created here of course ! ! ! !
+        this.rules.add(new RuleCentreOfNeighbours(this));
     }
 
     /**
@@ -95,8 +99,8 @@ public class BoidGroup {
         Color boidColor = new Color(r, g, b).brighter();
             
         for (int i = 0; i < numberOfBoids; ++i) {
-            int aleaX = ThreadLocalRandom.current().nextInt(1, height);
-            int aleaY = ThreadLocalRandom.current().nextInt(1, width);
+            int aleaX = ThreadLocalRandom.current().nextInt(1, width);
+            int aleaY = ThreadLocalRandom.current().nextInt(1, height);
             
             futureBoids[i] = new Boid(aleaX, aleaY, boidColor);
         }
@@ -114,6 +118,10 @@ public class BoidGroup {
 
     public List<Boid> getBoids() {
         return boids;
+    }
+    
+    public int size() {
+        return boids.size();
     }
 
     public int getDelay() {
