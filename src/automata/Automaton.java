@@ -1,11 +1,10 @@
 package automata;
 
 import gui.GUISimulator;
-import gui.Simulable;
-import event.EventManager;
-import event.AutomatonEvent;
+import events.AutomatonEvent;
 import java.awt.Color;
 import java.util.List;
+import systems.System;
 
 /**
  * Represents a 2D cellular automaton (CA).
@@ -16,14 +15,7 @@ import java.util.List;
  * @author Aurélien Pepin
  * @version 1.0
  */
-abstract public class Automaton implements Simulable {
-
-    /**
-     * The GUI used by the automaton.
-     *
-     * @see Automaton#simulate
-     */
-    protected GUISimulator gui;
+abstract public class Automaton extends System {
 
     /**
      * The (n * m) circular grid.
@@ -39,11 +31,6 @@ abstract public class Automaton implements Simulable {
      * The list of possible states for this automaton.
      */
     protected List<State> states;
-    
-    /**
-     * The event manager for the cellular automaton.
-     */
-    private EventManager events;
 
     /**
      * Automaton constructor {height, width, cellSize}.
@@ -53,9 +40,9 @@ abstract public class Automaton implements Simulable {
      * @param cellSize The size of a cell in pixels
      */
     public Automaton(int height, int width, int cellSize) {
+        super();
         this.grid = new Grid(height, width, this);
         this.setCellSize(cellSize);
-        this.events = new EventManager();
     }
 
     /**
@@ -77,7 +64,7 @@ abstract public class Automaton implements Simulable {
 
         // The cells inside the grid
         this.grid.initialize();
-        
+
         // The initial event of the cellular automaton.
         this.events.addEvent(new AutomatonEvent(1, this));
     }
@@ -95,6 +82,7 @@ abstract public class Automaton implements Simulable {
      *
      * @return The GUI created and carried by the automaton
      */
+    @Override
     public final GUISimulator simulate() {
         // Let's build the automaton before simulation.
         // Example of template method pattern.
@@ -113,36 +101,6 @@ abstract public class Automaton implements Simulable {
 
         return this.gui;
     }
-    
-    /**
-     * Gui getter.
-     *
-     * @see Automaton#gui
-     * @return gui
-     */
-    public GUISimulator getGui() {
-    	return this.gui;
-    }
-    
-    /**
-     * Grid getter.
-     *
-     * @see Automaton#grid
-     * @return grid
-     */
-    public Grid getGrid() {
-    	return this.grid;
-    }
-    
-    /**
-     * CellSize getter.
-     *
-     * @see Automaton#cellSize
-     * @return cellSize
-     */
-    public int getCellSize() {
-    	return this.cellSize;
-    }
 
     /**
      * Cell size setter.
@@ -157,20 +115,19 @@ abstract public class Automaton implements Simulable {
             this.cellSize = 20;
         }
     }
-    
+
     /**
-     * Events getter.
-     *
-     * @see Automaton#events
-     * @return events
+     * Execution of the automaton event.
      */
-    public EventManager getEvents() {
-    	return this.events;
+    @Override
+    public void executeEvent() {
+        grid.computeNextGeneration();
+        grid.draw(gui, cellSize, false);
     }
 
     @Override
     public void next() {
-    	events.next();
+        this.events.next();
     }
 
     @Override

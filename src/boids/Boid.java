@@ -1,106 +1,139 @@
 package boids;
 
-import java.awt.geom.Point2D;
-import java.awt.geom.Point2D.Float;
+import boids.utils.Vector2D;
+import boids.utils.GraphicalBoid;
+import java.awt.Color;
 
 /**
  * Represents a boid that evolves within a 2D boid simulator.
- * 
- * @author Baptiste Rigondaud
  *
+ * @author Baptiste Rigondaud
+ * @version 1.0
  */
 public class Boid {
 
-	/**
-	 * The boid's initial position.
-	 */
-	private Point2D.Float initPosition;
+    /**
+     * The (x, y)-location at the creation of the boid.
+     */
+    private final Vector2D initLocation;
 
-	/**
-	 * The boid's current position.
-	 */
-	private Point2D.Float position;
+    /**
+     * The (x, y)-location of the boid in the 2D space.
+     */
+    private Vector2D location;
 
-	/**
-	 * The boid's velocity.
-	 */
-	private Point2D.Float velocity;
+    /**
+     * The (x, y)-velocity of the boid.
+     */
+    private Vector2D velocity;
 
-	/**
-	 * The maximum width where the boid can move.
-	 */
-	private int maxWidth;
+    /**
+     * The (x, y)-acceleration of the boid.
+     */
+    private Vector2D acceleration;
 
-	/**
-	 * The maximum height where the boid can move.
-	 */
-	private int maxHeight;
+    /**
+     * The icon to be drawn to represent the boid and its color.
+     */
+    private GraphicalBoid icon;
+    private final Color fillColor;
+    
+    /**
+     * The maximum speed of the boid.
+     */
+    private final double maxSpeed;
 
-	/**
-	 * Creates a boid which will evolve in a given space with maximum width and
-	 * height.
-	 * 
-	 * @param maxWidth
-	 *            The maximum width.
-	 * @param maxHeight
-	 *            The maximum height.
-	 */
-	public Boid(int maxWidth, int maxHeight) {
-		setMaxWidth(maxWidth);
-		setMaxHeight(maxHeight);
-	}
+    /**
+     * The size of the boid.
+     */
+    private static final int ICON_SIZE = 12;
 
-	/**
-	 * Setter for the maxWidth for a boid.
-	 * 
-	 * @param width
-	 * @throws IllegalArgumentException
-	 *             if the width is not strictly positive.
-	 */
-	private void setMaxWidth(int width) {
-		if (width <= 0) {
-			throw new IllegalArgumentException("width must be strictly positive");
-		}
-		this.maxWidth = width;
-	}
+    
+    public Boid(int x, int y, Color fillColor) {
+        this.initLocation = new Vector2D(x, y);
+        this.restart();
 
-	/**
-	 * Setter for the maxHeight for a boid
-	 * 
-	 * @param height
-	 * @throws IllegalArgumentException
-	 *             if the height is not strictly positive.
-	 */
-	private void setMaxHeight(int height) {
-		if (height <= 0) {
-			throw new IllegalArgumentException("height must be strictly positive");
-		}
-		this.maxHeight = height;
-	}
+        this.maxSpeed = Double.MAX_VALUE;
+        this.fillColor = fillColor;
+        this.draw(fillColor);
+    }
+    
+    public Boid(int x, int y, Color fillColor, double maxSpeed) {
+        this.initLocation = new Vector2D(x, y);
+        this.restart();
 
-	/**
-	 * Getter for the boid's velocity.
-	 * 
-	 * @return The boid's velocity.
-	 */
-	public Point2D.Float getVelocity() {
-		return this.velocity;
-	}
+        this.maxSpeed = maxSpeed;
+        this.fillColor = fillColor;
+        this.draw(fillColor);
+    }
 
-	/**
-	 * Setter for the boid's velocity.
-	 * 
-	 * @param velocity
-	 */
-	public void setVelocity(Point2D.Float velocity) {
-		this.velocity = velocity;
-	}
+    
+    public final void update() {
+        Vector2D newLoc = new Vector2D(0, 0);
 
-	/**
-	 * Reset the boid to its initial position.
-	 */
-	public void reset() {
-		this.position = initPosition;
-	}
+        this.velocity.add(this.acceleration); // Speed rule application
+        this.limitVelocity();
+        
+        newLoc.add(this.velocity);
 
+        //Rotate the icon towards its new velocity
+        this.icon.rotateTo(this.velocity);
+        // Move the icon
+        this.icon.translate((int) newLoc.getX(), (int) newLoc.getY());
+
+        this.location.add(this.velocity); // Location rule application
+    }
+    
+    public void limitVelocity() {
+        double magnitude = this.velocity.magnitude();
+        
+        if (magnitude > maxSpeed) {
+            this.velocity.divideBy(magnitude);
+            this.velocity.multiplyBy(maxSpeed);
+        }
+    }
+
+    public final void restart() {
+        this.acceleration = new Vector2D(0, 0);
+        this.velocity = new Vector2D(0, 0);
+        this.location = new Vector2D(this.initLocation);
+
+        this.draw(this.fillColor);
+    }
+
+    public final void draw(Color fillColor) {
+        this.icon = new GraphicalBoid(location, velocity, Color.gray, fillColor, ICON_SIZE);
+    }
+
+    public Vector2D getLocation() {
+        return location;
+    }
+
+    public Vector2D getVelocity() {
+        return velocity;
+    }
+
+    public Vector2D getAcceleration() {
+        return acceleration;
+    }
+
+    public void setAcceleration(Vector2D newAcc) {
+        if (newAcc == null) {
+            throw new IllegalArgumentException("No null vector!");
+        }
+
+        this.acceleration = newAcc;
+    }
+
+    public double getDistance(Boid boid) {
+        if (boid == null) {
+            throw new IllegalArgumentException("No null boid!");
+        }
+
+        return this.location.distanceWith(boid.location);
+    }
+
+    public GraphicalBoid getIcon() {
+        return icon;
+    }
 }

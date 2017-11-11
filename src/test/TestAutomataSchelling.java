@@ -5,21 +5,20 @@
  */
 package test;
 
-import automata.conway.ConwayAutomaton;
+import automata.schelling.SchellingAutomaton;
 
 /**
  *
  * @author Admin
  */
-public class TestAutomata {
+public class TestAutomataSchelling {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        ConwayAutomaton conway = new ConwayAutomaton(35, 80, 10);
-        conway.simulate();
+        SchellingAutomaton schelling = new SchellingAutomaton(35, 80, 10, 2, 2);
+        schelling.simulate();
     }
 
 }

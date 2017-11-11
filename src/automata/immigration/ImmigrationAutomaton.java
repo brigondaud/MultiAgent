@@ -58,18 +58,18 @@ public class ImmigrationAutomaton extends Automaton {
         if (statesNumber <= 0) {
             throw new IllegalArgumentException("There must be at least one state");
         }
-        
+
         this.statesNumber = statesNumber;
     }
 
     @Override
     protected List<State> possibleStates() {
         State futureStates[] = new State[statesNumber];
-        
+
         for (int i = 0; i < futureStates.length; i++) {
             futureStates[i] = new State(i, i + "");
         }
-        
+
         return Arrays.asList(futureStates);
     }
 
