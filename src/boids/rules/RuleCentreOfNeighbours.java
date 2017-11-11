@@ -29,7 +29,7 @@ public class RuleCentreOfNeighbours extends Rule {
      * 
      * If not specified, INFINITE.
      */
-    private double distance; 
+    private double distance;
     
 
     public RuleCentreOfNeighbours(BoidGroup flock, double distance) {
