@@ -29,8 +29,6 @@ public class TestDrawGraphicalBoid {
 		GraphicalBoid b3 = new GraphicalBoid(new Vector2D(150, 150), new Vector2D(0.45, -3.70), Color.decode("#00A3C4"),
 				Color.decode("#4D8FAC"), 40);
 		
-		gui.setSimulable(new EmptySimulator());
-		
 		b1.rotateTo(new Vector2D(-5, 9));
 		b1.translate(100, 200);
 		
