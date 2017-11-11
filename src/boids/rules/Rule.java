@@ -3,7 +3,6 @@ package boids.rules;
 import boids.Boid;
 import boids.utils.Vector2D;
 
-
 /**
  * Rule represents a regulation which can be applied to a boid.
  *

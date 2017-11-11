@@ -61,10 +61,10 @@ abstract public class Automaton extends System {
     private void initAutomatonComponents() {
         // The states, defined by child classes
         this.states = possibleStates();
-        
+
         // The cells inside the grid
         this.grid.initialize();
-        
+
         // The initial event of the cellular automaton.
         this.events.addEvent(new AutomatonEvent(1, this));
     }
@@ -115,13 +115,13 @@ abstract public class Automaton extends System {
             this.cellSize = 20;
         }
     }
-    
+
     /**
      * Execution of the automaton event.
      */
     @Override
     public void executeEvent() {
-    	grid.computeNextGeneration();
+        grid.computeNextGeneration();
         grid.draw(gui, cellSize, false);
     }
 

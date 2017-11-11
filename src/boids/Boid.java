@@ -6,101 +6,134 @@ import java.awt.Color;
 
 /**
  * Represents a boid that evolves within a 2D boid simulator.
- * 
+ *
  * @author Baptiste Rigondaud
  * @version 1.0
  */
 public class Boid {
 
-	/**
-	 * The (x, y)-location at the creation of the boid.
-	 */
-	private final Vector2D initLocation;
+    /**
+     * The (x, y)-location at the creation of the boid.
+     */
+    private final Vector2D initLocation;
 
-	/**
-	 * The (x, y)-location of the boid in the 2D space.
-	 */
-	private Vector2D location;
+    /**
+     * The (x, y)-location of the boid in the 2D space.
+     */
+    private Vector2D location;
 
-	/**
-	 * The (x, y)-velocity of the boid.
-	 */
-	private Vector2D velocity;
+    /**
+     * The (x, y)-velocity of the boid.
+     */
+    private Vector2D velocity;
 
-	/**
-	 * The (x, y)-acceleration of the boid.
-	 */
-	private Vector2D acceleration;
+    /**
+     * The (x, y)-acceleration of the boid.
+     */
+    private Vector2D acceleration;
 
-	/**
-	 * The circle to be drawn to represent the boid.
-	 */
-	private GraphicalBoid icon;
-	private Color fillColor;
+    /**
+     * The icon to be drawn to represent the boid and its color.
+     */
+    private GraphicalBoid icon;
+    private final Color fillColor;
+    
+    /**
+     * The maximum speed of the boid.
+     */
+    private final double maxSpeed;
 
-	private static final int ICON_SIZE = 10;
+    /**
+     * The size of the boid.
+     */
+    private static final int ICON_SIZE = 15;
 
-	public Boid(int x, int y, Color fillColor) {
-		this.initLocation = new Vector2D(x, y);
-		this.restart();
+    
+    public Boid(int x, int y, Color fillColor) {
+        this.initLocation = new Vector2D(x, y);
+        this.restart();
 
-		this.fillColor = fillColor;
-		this.draw(fillColor);
-	}
+        this.maxSpeed = Double.MAX_VALUE;
+        this.fillColor = fillColor;
+        this.draw(fillColor);
+    }
+    
+    public Boid(int x, int y, Color fillColor, double maxSpeed) {
+        this.initLocation = new Vector2D(x, y);
+        this.restart();
 
-	public final void update() {
-		Vector2D newLoc = new Vector2D(0, 0);
+        this.maxSpeed = maxSpeed;
+        this.fillColor = fillColor;
+        this.draw(fillColor);
+    }
 
-		this.velocity.add(this.acceleration); // Speed rule application
-		newLoc.add(this.velocity);
+    
+    public final void update() {
+        Vector2D newLoc = new Vector2D(0, 0);
 
-		//Rotate the icon towards its new velocity
-		this.icon.rotateTo(this.velocity);
-		// Move the icon
-		this.icon.translate((int) newLoc.getX(), (int) newLoc.getY());
+        this.velocity.add(this.acceleration); // Speed rule application
+        this.limitVelocity();
+        
+        newLoc.add(this.velocity);
 
-		this.location.add(this.velocity); // Location rule application
-	}
+        //Rotate the icon towards its new velocity
+        this.icon.rotateTo(this.velocity);
+        // Move the icon
+        this.icon.translate((int) newLoc.getX(), (int) newLoc.getY());
 
-	public final void restart() {
-		this.acceleration = new Vector2D(0, 0);
-		this.velocity = new Vector2D(0, 0);
-		this.location = new Vector2D(this.initLocation);
+        this.location.add(this.velocity); // Location rule application
+    }
+    
+    public void limitVelocity() {
+        double magnitude = this.velocity.magnitude();
+        
+        if (magnitude > maxSpeed) {
+            this.velocity.divideBy(magnitude);
+            this.velocity.multiplyBy(maxSpeed);
+        }
+    }
 
-		this.draw(this.fillColor);
-	}
+    public final void restart() {
+        this.acceleration = new Vector2D(0, 0);
+        this.velocity = new Vector2D(0, 0);
+        this.location = new Vector2D(this.initLocation);
 
-	public final void draw(Color fillColor) {
-		this.icon = new GraphicalBoid(location, velocity, Color.gray, fillColor, ICON_SIZE);
-	}
+        this.draw(this.fillColor);
+    }
 
-	public Vector2D getLocation() {
-		return location;
-	}
+    public final void draw(Color fillColor) {
+        this.icon = new GraphicalBoid(location, velocity, Color.gray, fillColor, ICON_SIZE);
+    }
 
-	public Vector2D getVelocity() {
-		return velocity;
-	}
+    public Vector2D getLocation() {
+        return location;
+    }
 
-	public Vector2D getAcceleration() {
-		return acceleration;
-	}
+    public Vector2D getVelocity() {
+        return velocity;
+    }
 
-	public void setAcceleration(Vector2D newAcc) {
-		if (newAcc == null)
-			throw new IllegalArgumentException("No null vector!");
+    public Vector2D getAcceleration() {
+        return acceleration;
+    }
 
-		this.acceleration = newAcc;
-	}
+    public void setAcceleration(Vector2D newAcc) {
+        if (newAcc == null) {
+            throw new IllegalArgumentException("No null vector!");
+        }
 
-	public double getDistance(Boid boid) {
-		if (boid == null)
-			throw new IllegalArgumentException("No null boid!");
+        this.acceleration = newAcc;
+    }
 
-		return this.location.distanceWith(boid.location);
-	}
+    public double getDistance(Boid boid) {
+        if (boid == null) {
+            throw new IllegalArgumentException("No null boid!");
+        }
 
-	public GraphicalBoid getIcon() {
-		return icon;
-	}
+        return this.location.distanceWith(boid.location);
+    }
+
+    public GraphicalBoid getIcon() {
+        return icon;
+    }
 }

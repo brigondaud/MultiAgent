@@ -11,54 +11,54 @@ import gui.Simulable;
  */
 abstract public class System implements Simulable {
 
-	/**
-	 * The GUI used by the system.
-	 *
-	 * @see System#simulate
-	 */
-	protected GUISimulator gui;
+    /**
+     * The GUI used by the system.
+     *
+     * @see System#simulate
+     */
+    protected GUISimulator gui;
 
-	/**
-	 * The event manager for the system.
-	 */
-	protected EventManager events;
+    /**
+     * The event manager for the system.
+     */
+    protected EventManager events;
 
-	/**
-	 * Constructor.
-	 */
-	public System() {
-		this.events = new EventManager();
-	}
+    /**
+     * Constructor.
+     */
+    public System() {
+        this.events = new EventManager();
+    }
 
-	/**
-	 * Gui getter.
-	 *
-	 * @see System#gui
-	 * @return gui
-	 */
-	public GUISimulator getGui() {
-		return this.gui;
-	}
+    /**
+     * Gui getter.
+     *
+     * @see System#gui
+     * @return gui
+     */
+    public GUISimulator getGui() {
+        return this.gui;
+    }
 
-	/**
-	 * Events getter.
-	 *
-	 * @see System#events
-	 * @return events
-	 */
-	public EventManager getEvents() {
-		return this.events;
-	}
+    /**
+     * Events getter.
+     *
+     * @see System#events
+     * @return events
+     */
+    public EventManager getEvents() {
+        return this.events;
+    }
 
-	/**
-	 * Any system has associated event that can be executed when simulated.
-	 */
-	public abstract void executeEvent();
+    /**
+     * Any system has associated event that can be executed when simulated.
+     */
+    public abstract void executeEvent();
 
-	/**
-	 * Any multi-agent system could be simulated.
-	 * 
-	 * @return A reference to the current GUI Simulator.
-	 */
-	abstract public GUISimulator simulate();
+    /**
+     * Any multi-agent system could be simulated.
+     *
+     * @return A reference to the current GUI Simulator.
+     */
+    abstract public GUISimulator simulate();
 }
