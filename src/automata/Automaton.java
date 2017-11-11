@@ -1,8 +1,6 @@
 package automata;
 
 import gui.GUISimulator;
-import gui.Simulable;
-import events.EventManager;
 import events.AutomatonEvent;
 import java.awt.Color;
 import java.util.List;

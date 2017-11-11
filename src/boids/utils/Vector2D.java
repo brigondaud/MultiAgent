@@ -1,8 +1,8 @@
 package boids.utils;
 
 /**
- * Represents a 2D Vector.
- * This class may have many applications: location, velocity, acceleration, etc.
+ * Represents a 2D Vector. This class may have many applications: location,
+ * velocity, acceleration, etc.
  * 
  * @author Aurélien Pepin
  * @version 1.0
@@ -18,6 +18,11 @@ public class Vector2D {
      * The y-coordinate for the 2D Vector.
      */
     private double y;
+    
+    /**
+     * The max angle.
+     */
+    private static double maxAngle = 2 * Math.PI;
 
     /**
      * Constructor.
@@ -70,6 +75,17 @@ public class Vector2D {
     public void divideBy(double factor) {        
         this.x /= factor;
         this.y /= factor;
+    }
+    
+    /**
+     * Computes the angle a vector has to the horizontal.
+     * 
+     * @return the angle to horizontal
+     */
+    public double angle() {
+            double temp = Math.atan2(getY(), getX());
+            double angle = temp < 0 ? temp + maxAngle : temp;
+            return angle;
     }
     
     public double distanceWith(Vector2D other) {
