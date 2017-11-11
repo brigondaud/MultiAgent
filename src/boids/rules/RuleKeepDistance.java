@@ -13,8 +13,8 @@ import boids.utils.Vector2D;
  *
  * @author Admin
  */
-public class RuleCentreOfNeighbours extends Rule {
-    
+public class RuleKeepDistance extends Rule {
+
     /**
      * The flock to approach.
      * 
@@ -29,37 +29,31 @@ public class RuleCentreOfNeighbours extends Rule {
      * 
      * If not specified, INFINITE.
      */
-    private double distance; 
+    private double distance;
     
-
-    public RuleCentreOfNeighbours(BoidGroup flock, double distance) {
+    
+    public RuleKeepDistance(BoidGroup flock, double distance) {
         this.flock = flock;
         this.setDistance(distance);
     }
-
-    public RuleCentreOfNeighbours(BoidGroup flock) {
+    
+    public RuleKeepDistance(BoidGroup flock) {
         this.flock = flock;
-        this.distance = Double.MAX_VALUE;
+        this.distance = 15;
     }
     
-    // TODO HANDLE DISTANCE !
     
     @Override
     public Vector2D applyRule(Boid boid) {
         Vector2D force = new Vector2D(0, 0);
         
         for (Boid neighbour : flock.getBoids()) {
-            if (neighbour != boid && neighbour.getDistance(boid) < this.distance) {
-                force.add(neighbour.getLocation());
+            if (neighbour != boid && neighbour.getDistance(boid) < distance) {
+                force.minus(Vector2D.minus(neighbour.getLocation(), boid.getLocation()));
             }
         }
         
-        if (flock.size() > 1) {
-            force.divideBy(flock.size() - 1);
-            force.minus(boid.getLocation());
-            force.divideBy(100);
-        }
-        
+        // force.divideBy(1000);
         return force;
     }
     

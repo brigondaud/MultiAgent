@@ -65,5 +65,6 @@ public class EventManager {
      */
     public void restart() {
         events.clear();
+        currentDate = 0;
     }
 }

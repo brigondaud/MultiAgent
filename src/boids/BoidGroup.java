@@ -1,7 +1,10 @@
 package boids;
 
 import boids.rules.Rule;
+import boids.rules.RuleBoundPosition;
 import boids.rules.RuleCentreOfNeighbours;
+import boids.rules.RuleKeepDistance;
+import boids.rules.RuleMatchVelocity;
 import boids.utils.Vector2D;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -54,6 +57,9 @@ public class BoidGroup {
         
         // TODO. To move, not to be created here of course ! ! ! !
         this.rules.add(new RuleCentreOfNeighbours(this));
+        this.rules.add(new RuleKeepDistance(this));
+        this.rules.add(new RuleMatchVelocity(this));
+        this.rules.add(new RuleBoundPosition(0, width, 0, height));
     }
 
     /**
@@ -67,6 +73,7 @@ public class BoidGroup {
             newAcceleration = new Vector2D(0, 0);
             
             for (Rule rule : rules) {
+                
                 newAcceleration.add(rule.applyRule(boid));
             }
             

@@ -82,10 +82,13 @@ public class BoidSystem extends System {
     public void restart() {
         this.events.restart();
         
-        for (BoidGroup flock : flocks)
+        for (BoidGroup flock : flocks) {
             flock.restart();
+            this.events.addEvent(new BoidEvent(1, this, flock));
+        }
         
-        // TODO. Reregister les icons ?
+        this.gui.reset();
+        this.registerIcons();
     }
     
     /**

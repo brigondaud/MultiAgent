@@ -60,9 +60,23 @@ public class Vector2D {
         this.y -= other.y;
     }
     
+    public static Vector2D minus(Vector2D v1, Vector2D v2) {
+        if (v1 == null || v2 == null)
+            return null;
+        
+        return new Vector2D(v1.x - v2.x, v1.y - v2.y);
+    }
+    
     public void divideBy(double factor) {        
         this.x /= factor;
         this.y /= factor;
+    }
+    
+    public double distanceWith(Vector2D other) {
+        if (other == null)
+            return Double.MAX_VALUE;
+        
+        return Math.sqrt(Math.pow(this.x - other.x, 2) * 2 + Math.pow(this.y - other.y, 2));
     }
 
     public double getX() {

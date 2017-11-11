@@ -36,6 +36,7 @@ public class Boid {
      * The circle to be drawn to represent the boid.
      */
     private Oval icon;
+    private Color fillColor;
     
     private static final int ICON_SIZE = 10;
 
@@ -44,11 +45,8 @@ public class Boid {
         this.initLocation = new Vector2D(x, y);
         this.restart();
         
-        // Draw the circle to represent the boid
-        this.icon = new Oval(
-            (int) this.location.getX(), (int) this.location.getY(),
-            Color.gray, fillColor, ICON_SIZE
-        );
+        this.fillColor = fillColor;
+        this.draw(fillColor);
     }
     
     
@@ -71,6 +69,15 @@ public class Boid {
         this.acceleration = new Vector2D(0, 0);
         this.velocity = new Vector2D(0, 0);
         this.location = new Vector2D(this.initLocation);
+        
+        this.draw(this.fillColor);
+    }
+    
+    public final void draw(Color fillColor) {
+        this.icon = new Oval(
+            (int) this.location.getX(), (int) this.location.getY(),
+            Color.gray, fillColor, ICON_SIZE
+        );
     }
     
     public Vector2D getLocation() {
@@ -90,6 +97,13 @@ public class Boid {
             throw new IllegalArgumentException("No null vector!");
         
         this.acceleration = newAcc;
+    }
+    
+    public double getDistance(Boid boid) {
+        if (boid == null)
+            throw new IllegalArgumentException("No null boid!");
+        
+        return this.location.distanceWith(boid.location);
     }
 
     public Oval getIcon() {
