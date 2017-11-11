@@ -53,7 +53,7 @@ public class RuleCentreOfNeighbours extends Rule {
         if (flock.size() > 1) {
             force.divideBy(flock.size() - 1);
             force.minus(boid.getLocation());
-            force.divideBy(300);
+            force.divideBy(100);
         }
 
         return force;

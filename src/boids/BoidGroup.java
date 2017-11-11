@@ -106,7 +106,7 @@ public class BoidGroup {
             int aleaX = ThreadLocalRandom.current().nextInt(1, width);
             int aleaY = ThreadLocalRandom.current().nextInt(1, height);
 
-            futureBoids[i] = new Boid(aleaX, aleaY, boidColor, 10);
+            futureBoids[i] = new Boid(aleaX, aleaY, boidColor, 7);
         }
 
         // No need to get a mutable list now.

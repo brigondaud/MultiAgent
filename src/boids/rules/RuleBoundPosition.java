@@ -53,7 +53,7 @@ public class RuleBoundPosition extends Rule {
         this.yMin = yMin;
         this.yMax = yMax;
 
-        this.attraction = 10;
+        this.attraction = 20;
     }
 
     @Override

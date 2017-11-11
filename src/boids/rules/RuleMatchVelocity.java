@@ -39,7 +39,7 @@ public class RuleMatchVelocity extends Rule {
         if (flock.size() > 1) {
             force.divideBy(flock.size() - 1);
             force.minus(boid.getVelocity());
-            force.divideBy(8);
+            force.divideBy(5);
         }
 
         return force;

@@ -49,7 +49,7 @@ public class RuleKeepDistance extends Rule {
             }
         }
 
-        // force.divideBy(1000);
+         force.divideBy(5);
         return force;
     }
 

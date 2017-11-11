@@ -19,8 +19,8 @@ public class TestBoidSystem {
      */
     public static void main(String[] args) {
         BoidSystem bs = new BoidSystem(900, 600);
-        BoidGroup g1 = bs.addGroupOf(20, 1);
-        BoidGroup g2 = bs.addGroupOf(15, 1);
+        BoidGroup g1 = bs.addGroupOf(150, 1);
+        BoidGroup g2 = bs.addGroupOf(50, 1);
         
         g1.addRule(new RuleCentreOfNeighbours(g1)).addRule(new RuleKeepDistance(g1))
           .addRule(new RuleMatchVelocity(g1)).addRule(new RuleBoundPosition(0, 900, 0, 600));
