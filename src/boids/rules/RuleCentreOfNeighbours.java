@@ -42,8 +42,6 @@ public class RuleCentreOfNeighbours extends Rule {
         this.distance = Double.MAX_VALUE;
     }
     
-    // TODO HANDLE DISTANCE !
-    
     @Override
     public Vector2D applyRule(Boid boid) {
         Vector2D force = new Vector2D(0, 0);
