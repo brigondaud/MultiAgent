@@ -46,19 +46,13 @@ public class BoidGroup {
      */
     private final int height;
 
-    public BoidGroup(int numberOfBoids, int width, int height) {
+    public BoidGroup(int numberOfBoids, int width, int height, int delay) {
         this.width = width;
         this.height = height;
-        this.delay = 1; // TODO.
+        this.delay = delay;
 
         this.populate(numberOfBoids);
         this.rules = new ArrayList<>();
-
-        // TODO. To move, not to be created here of course ! ! ! !
-        this.rules.add(new RuleCentreOfNeighbours(this));
-        this.rules.add(new RuleKeepDistance(this));
-        this.rules.add(new RuleMatchVelocity(this));
-        this.rules.add(new RuleBoundPosition(0, width, 0, height));
     }
 
     /**
@@ -67,6 +61,9 @@ public class BoidGroup {
     public void update() {
         Vector2D newAcceleration;
 
+        if (rules.isEmpty())
+            return;
+        
         // The new boid acceleration will depend on rules.
         for (Boid boid : boids) {
             newAcceleration = new Vector2D(0, 0);
@@ -109,7 +106,7 @@ public class BoidGroup {
             int aleaX = ThreadLocalRandom.current().nextInt(1, width);
             int aleaY = ThreadLocalRandom.current().nextInt(1, height);
 
-            futureBoids[i] = new Boid(aleaX, aleaY, boidColor, 20);
+            futureBoids[i] = new Boid(aleaX, aleaY, boidColor, 10);
         }
 
         // No need to get a mutable list now.
@@ -123,6 +120,19 @@ public class BoidGroup {
         for (Boid b : boids) {
             b.restart();
         }
+    }
+    
+    /**
+     * Add any type of rule to the group.
+     * 
+     * @param r The new rule.
+     * @return The group to allow chains.
+     */
+    public BoidGroup addRule(Rule r) {
+        if (r != null)
+            this.rules.add(r);
+        
+        return this;
     }
 
     public List<Boid> getBoids() {

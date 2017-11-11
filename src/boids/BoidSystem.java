@@ -15,7 +15,7 @@ import systems.System;
  * @version 1.0
  */
 public class BoidSystem extends System {
-
+    
     /**
      * The flocks (groups) of boids. Each flock may have its own rules.
      */
@@ -60,14 +60,15 @@ public class BoidSystem extends System {
      * Add a new group inside the boids system.
      *
      * @param numberOfBoids The number of boids for this group.
+     * @param delay
      * @return The newly created group of boids.
      */
-    public BoidGroup addGroupOf(int numberOfBoids) {
+    public BoidGroup addGroupOf(int numberOfBoids, int delay) {
         if (numberOfBoids < 1) {
             throw new IllegalArgumentException("A group without boids?!");
         }
 
-        BoidGroup theGroup = new BoidGroup(numberOfBoids, width, height);
+        BoidGroup theGroup = new BoidGroup(numberOfBoids, width, height, delay);
         flocks.add(theGroup);
 
         this.events.addEvent(new BoidEvent(1, this, theGroup));
