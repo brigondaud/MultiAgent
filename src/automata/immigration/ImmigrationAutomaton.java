@@ -6,27 +6,29 @@ import java.util.List;
 import automata.Automaton;
 import automata.Cell;
 import automata.State;
-import automata.immigration.ImmigrationCell;
 
 /**
  * Represents a 2D automaton for Immigration Game: a Conway's Game of Life but
  * with n states.
  *
- * @author Baptiste Rigondaud
- *
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class ImmigrationAutomaton extends Automaton {
 
+    /**
+     * The number of states in the immigration simulation.
+     */
     private int statesNumber;
 
     /**
      * Immigration Automaton constructor {height, width, cellSize,
      * statesNumber}.
      *
-     * @param height The vertical number of cells
-     * @param width The horizontal number of cells
-     * @param cellSize The size of a cell in pixels
-     * @param states The number of possible states
+     * @param height        The vertical number of cells
+     * @param width         The horizontal number of cells
+     * @param cellSize      The size of a cell in pixels
+     * @param statesNumber  The number of possible states
      * @see Automaton#Automaton(int, int, int)
      */
     public ImmigrationAutomaton(int height, int width, int cellSize, int statesNumber) {
@@ -51,8 +53,6 @@ public class ImmigrationAutomaton extends Automaton {
      * Setter for statesNumber
      *
      * @param statesNumber
-     * @throws IllegalArgumentExcpetion if the states number is not strictly
-     * positive
      */
     public final void setStatesNumber(int statesNumber) {
         if (statesNumber <= 0) {
@@ -77,5 +77,4 @@ public class ImmigrationAutomaton extends Automaton {
     protected Cell getCellModel(int i, int j) {
         return new ImmigrationCell(this.grid, i, j, this.states);
     }
-
 }

@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package test;
 
 import automata.immigration.ImmigrationAutomaton;
 
 /**
  *
- * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
+ * @author Team 22 in Teide
  */
 public class TestAutomataImmigration {
 

@@ -1,9 +1,12 @@
 package test;
 
 import gui.*;
-
 import java.awt.Color;
 
+/**
+ *
+ * @author Team 22 in Teide
+ */
 public class TestGUI {
 
     public static void main(String[] args) {

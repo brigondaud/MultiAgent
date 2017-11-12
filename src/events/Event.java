@@ -1,17 +1,17 @@
 package events;
 
 /**
- * An Event that can be created to execute an action at a given date.
+ * Represents an event that can be created to execute an action at a given date.
  *
- * @author Baptiste Rigondaud
- *
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public abstract class Event implements Comparable<Event> {
 
     /**
      * The event's date.
      */
-    private long date;
+    private final long date;
 
     /**
      * Initiate the event with a given date.
@@ -39,6 +39,7 @@ public abstract class Event implements Comparable<Event> {
     /**
      * Compares two events based on their date.
      *
+     * @param e The other event to compare with.
      * @return 1, 0 or -1 to create an order between events
      * @throws NullPointerException if the event to compare with is null.
      */
@@ -59,6 +60,7 @@ public abstract class Event implements Comparable<Event> {
     /**
      * Two events are equal if they happen at the same time.
      *
+     * @param o
      * @return true if the two event happen at the same time.
      */
     @Override
@@ -66,6 +68,7 @@ public abstract class Event implements Comparable<Event> {
         if (o instanceof Event == false) {
             return false;
         }
+        
         Event e = (Event) o;
         return this.date == e.getDate();
     }

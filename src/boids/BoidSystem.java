@@ -6,15 +6,15 @@ import gui.Rectangle;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-import systems.System;
+import systems.AbstractSystem;
 
 /**
  * Represents a multiagent system where agents are boids.
  *
- * @author Aurélien Pepin
+ * @author Team 22 in Teide
  * @version 1.0
  */
-public class BoidSystem extends System {
+public class BoidSystem extends AbstractSystem {
     
     /**
      * The flocks (groups) of boids. Each flock may have its own rules.
@@ -45,6 +45,7 @@ public class BoidSystem extends System {
         this.setHeight(height);
     }
 
+    
     @Override
     public GUISimulator simulate() {
         this.gui = new GUISimulator(this.width, this.height, Color.WHITE);
@@ -130,10 +131,5 @@ public class BoidSystem extends System {
                 this.gui.addGraphicalElement(b.getIcon());
             }
         }
-    }
-
-    @Override
-    public void executeEvent() {
-        ; // Useful? TODO.
     }
 }

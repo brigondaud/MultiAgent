@@ -4,7 +4,7 @@ import gui.GUISimulator;
 import events.AutomatonEvent;
 import java.awt.Color;
 import java.util.List;
-import systems.System;
+import systems.AbstractSystem;
 
 /**
  * Represents a 2D cellular automaton (CA).
@@ -12,10 +12,10 @@ import systems.System;
  * This model is designed to fit with most of cellular agent-based models. It
  * encapsulates among others a grid (variable size) and drawing methods.
  *
- * @author Aurélien Pepin
+ * @author Team 22 in Teide
  * @version 1.0
  */
-abstract public class Automaton extends System {
+abstract public class Automaton extends AbstractSystem {
 
     /**
      * The (n * m) circular grid.
@@ -56,7 +56,8 @@ abstract public class Automaton extends System {
     }
 
     /**
-     * Initializes components of the automaton. Possible states, all cells
+     * Initializes components of the automaton.
+     * These components are states, cells and events.
      */
     private void initAutomatonComponents() {
         // The states, defined by child classes
@@ -119,7 +120,6 @@ abstract public class Automaton extends System {
     /**
      * Execution of the automaton event.
      */
-    @Override
     public void executeEvent() {
         grid.computeNextGeneration();
         grid.draw(gui, cellSize, false);

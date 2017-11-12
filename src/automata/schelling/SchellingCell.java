@@ -1,35 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automata.schelling;
 
 import automata.Cell;
 import automata.Grid;
 import automata.State;
-import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
+ * Represents of a cell for the Schelling simulation.
+ * This class extends the abstract cell model.
  *
- * @author Admin
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class SchellingCell extends Cell implements Comparable {
 
     /**
-     * Set of vacants cells. Give a reference to the cell so the trade is
-     * possible.
+     * Set of vacants cells.
+     * Give a reference to the cell so the trade is possible.
      */
     private final SchellingSet<SchellingCell> vacants;
 
     /**
-     * Thresold to trigger a cell move. Give a reference to the cell so it can
-     * know if it has to move.
+     * Thresold to trigger a cell move.
+     * ive a reference to the cell so it can know if it has to move.
      */
     private final int thresold;
 
+    /**
+     * Constructor of the cell {grid, i, j, states, vacants, thresold}.
+     * 
+     * @param grid      The grid in which the cell evolves.
+     * @param i         The i-index of the cell.
+     * @param j         The j-index of the cell.
+     * @param states    The possible states for the cell.
+     * @param vacants   The set of vacant cells.
+     * @param thresold  The thresold to make a family move.
+     */
     public SchellingCell(Grid grid, int i, int j, List<State> states,
         SchellingSet<SchellingCell> vacants, int thresold) {
         super(grid, i, j, states);
@@ -58,7 +65,6 @@ public class SchellingCell extends Cell implements Comparable {
             if (vacants.contains(this)) {
                 return this.state;
             } else {
-                // System.err.println("SS : " + this.saveState);
                 return this.saveState;
             }
         }
@@ -81,8 +87,9 @@ public class SchellingCell extends Cell implements Comparable {
     }
 
     /**
-     * TODO. Commentaires ici.
-     */
+     * Change the state of the cell.
+     * Useful here if the cell is newly vacant.
+     */ 
     @Override
     public void changeState() {
         if (this.saveState.equals(states.get(states.size() - 1))) {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package boids.rules;
 
 import boids.Boid;
@@ -10,8 +5,11 @@ import boids.BoidGroup;
 import boids.utils.Vector2D;
 
 /**
- *
- * @author Admin
+ * Represents a rule where a boid falls into line with other boids' velocity.
+ * Useful to create consistency between boids in a group.
+ * 
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class RuleMatchVelocity extends Rule {
 
@@ -22,10 +20,17 @@ public class RuleMatchVelocity extends Rule {
      */
     private final BoidGroup flock;
 
+    
+    /**
+     * Constructor of the rule.
+     * 
+     * @param flock     The flock of the boid.
+     */
     public RuleMatchVelocity(BoidGroup flock) {
         this.flock = flock;
     }
 
+    
     @Override
     public Vector2D applyRule(Boid boid) {
         Vector2D force = new Vector2D(0, 0);
@@ -44,5 +49,4 @@ public class RuleMatchVelocity extends Rule {
 
         return force;
     }
-
 }

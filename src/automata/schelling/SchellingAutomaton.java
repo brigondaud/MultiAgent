@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package automata.schelling;
 
 import automata.Automaton;
@@ -10,28 +5,32 @@ import automata.Cell;
 import automata.State;
 import java.awt.Color;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.PriorityQueue;
 
 /**
+ * Represents a 2D automaton for the Schelling automaton.
+ * In this simulation, cells are families moving when there
+ * are to much families with other colours around them.
  *
- * @author Admin
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class SchellingAutomaton extends Automaton {
 
     /**
-     * Number of colors. Should be > 0.
+     * Number of colors.
+     * Should be > 0.
      */
     private final int colorsNumber;
 
     /**
-     * Thresold for a cell move. Should be > 0.
+     * Thresold for a cell move.
+     * Should be > 0.
      */
     private final int thresold;
 
     /**
-     * Set to store vacant cells.
+     * Schelling Set to store vacant cells.
      */
     private final SchellingSet<SchellingCell> vacants;
 
@@ -39,11 +38,11 @@ public class SchellingAutomaton extends Automaton {
      * Schelling Automaton constructor {height, width, cellSize, colorsNumber,
      * thresold}.
      *
-     * @param height
-     * @param width
-     * @param cellSize
-     * @param colorsNumber
-     * @param thresold
+     * @param height        The number of vertical cells.
+     * @param width         The number of horizontal cells.
+     * @param cellSize      The size of a cell, in pixels.
+     * @param colorsNumber  The number of colors (different family types).
+     * @param thresold      The thresold to make a family move.
      */
     public SchellingAutomaton(int height, int width, int cellSize, int colorsNumber, int thresold) {
         super(height, width, cellSize);

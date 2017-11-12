@@ -3,6 +3,10 @@ package test;
 import events.EventManager;
 import events.MessageEvent;
 
+/**
+ *
+ * @author Team 22 in Teide
+ */
 public class TestEventManager {
 
     public static void main(String[] args) throws InterruptedException {

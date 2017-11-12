@@ -8,45 +8,46 @@ import balls.Balls;
  * movement and create a new movement in the movement manager to simulate a
  * continuous movement.
  *
- * @author Baptiste Rigondaud
- *
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class BallEvent extends Event {
 
     /**
      * The balls on which the event can be executed.
      */
-    private Balls balls;
+    private final Balls balls;
 
     /**
      * The velocity that controls the balls movement.
      */
-    private Point velocity;
+    private final Point velocity;
 
     /**
      * To simulate the continuous movement, the event needs to add a new event
      * in the event manager that executes it.
      */
-    private EventManager events;
+    private final EventManager events;
 
     /**
      * Initiate the event with a date and the balls on which the event can
      * execute the movement, with a given velocity.
      *
-     * @param date
-     * @param events
-     * @param balls
-     * @param velocity
+     * @param date      The date to fire the event.
+     * @param events    The events to simulate a continuous movement.
+     * @param balls     The balls assoiated with the event.
+     * @param velocity  The velocity of the balls.
      */
     public BallEvent(long date, EventManager events, Balls balls, Point velocity) {
         super(date);
+        
         this.balls = balls;
         this.velocity = velocity;
         this.events = events;
     }
 
     /**
-     * The execution of the event translate the balls and generate another event
+     * The execution of the event translates the balls and generates another event
      * to simulate the continuous movement.
      */
     @Override
