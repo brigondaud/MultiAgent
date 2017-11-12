@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Team 22 in Teide
  * @version 1.0
  */
-public class SchellingCell extends Cell implements Comparable {
+public class SchellingCell extends Cell implements Comparable<Object> {
 
     /**
      * Set of vacants cells.
