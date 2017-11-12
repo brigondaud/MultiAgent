@@ -45,7 +45,7 @@ public class SchellingSet<T> extends AbstractSet<T> implements Set<T> {
 
     @Override
     public boolean remove(Object o) {
-        Integer indexBoxed = indexMap.remove((T) o);
+        Integer indexBoxed = indexMap.remove(o);
         if (indexBoxed == null) {
             return false;
         }
@@ -96,7 +96,7 @@ public class SchellingSet<T> extends AbstractSet<T> implements Set<T> {
 
     @Override
     public boolean contains(Object o) {
-        return indexMap.containsKey((T) o);
+        return indexMap.containsKey(o);
     }
 
     @Override
