@@ -46,7 +46,7 @@ public class Boid {
     /**
      * The size of the boid.
      */
-    private static final int ICON_SIZE = 12;
+    private static final int ICON_SIZE = 15;
 
     
     /**

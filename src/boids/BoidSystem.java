@@ -52,8 +52,6 @@ public class BoidSystem extends AbstractSystem {
         this.gui.setSimulable(this);
         this.registerIcons();
         
-        this.gui.addGraphicalElement(new Rectangle(width / 2, height / 2, Color.GRAY, null, width, height));
-
         return this.gui;
     }
 
