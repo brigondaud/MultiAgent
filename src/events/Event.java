@@ -68,7 +68,7 @@ public abstract class Event implements Comparable<Event> {
         if (o instanceof Event == false) {
             return false;
         }
-        
+
         Event e = (Event) o;
         return this.date == e.getDate();
     }

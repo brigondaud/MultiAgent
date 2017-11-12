@@ -56,8 +56,8 @@ abstract public class Automaton extends AbstractSystem {
     }
 
     /**
-     * Initializes components of the automaton.
-     * These components are states, cells and events.
+     * Initializes components of the automaton. These components are states,
+     * cells and events.
      */
     private void initAutomatonComponents() {
         // The states, defined by child classes

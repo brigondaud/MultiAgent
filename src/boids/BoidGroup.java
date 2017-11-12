@@ -42,14 +42,13 @@ public class BoidGroup {
      */
     private final int height;
 
-    
     /**
      * Constructor of a group of boids.
-     * 
+     *
      * @param numberOfBoids The number of boids inside the group.
-     * @param width         The width of the window to init boids.
-     * @param height        The height of the window to init boids.
-     * @param delay         The delay between two groups events firing.
+     * @param width The width of the window to init boids.
+     * @param height The height of the window to init boids.
+     * @param delay The delay between two groups events firing.
      */
     public BoidGroup(int numberOfBoids, int width, int height, int delay) {
         this.width = width;
@@ -61,15 +60,16 @@ public class BoidGroup {
     }
 
     /**
-     * Update the group of boids with associated rules.
-     * If no rules, the update has no effect.
+     * Update the group of boids with associated rules. If no rules, the update
+     * has no effect.
      */
     public void update() {
         Vector2D newAcceleration;
 
-        if (rules.isEmpty())
+        if (rules.isEmpty()) {
             return;
-        
+        }
+
         // The new boid acceleration will depend on rules.
         for (Boid boid : boids) {
             newAcceleration = new Vector2D(0, 0);
@@ -126,23 +126,24 @@ public class BoidGroup {
             b.restart();
         }
     }
-    
+
     /**
      * Add any type of rule to the group.
-     * 
+     *
      * @param r The new rule.
      * @return The group to allow chains.
      */
     public BoidGroup addRule(Rule r) {
-        if (r != null)
+        if (r != null) {
             this.rules.add(r);
-        
+        }
+
         return this;
     }
 
     /**
      * Boids getter.
-     * 
+     *
      * @return The list of boids inside this group.
      */
     public List<Boid> getBoids() {
@@ -151,7 +152,7 @@ public class BoidGroup {
 
     /**
      * Number of boids getter.
-     * 
+     *
      * @return The size of the boids list, the number of boids.
      */
     public int size() {
@@ -160,7 +161,7 @@ public class BoidGroup {
 
     /**
      * Delay getter.
-     * 
+     *
      * @return The delay between two updates.
      */
     public int getDelay() {

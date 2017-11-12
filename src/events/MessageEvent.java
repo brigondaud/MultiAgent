@@ -15,9 +15,9 @@ public class MessageEvent extends Event {
 
     /**
      * Constructor {date, message}.
-     * 
-     * @param date      The date to fire the event
-     * @param message   The message to print
+     *
+     * @param date The date to fire the event
+     * @param message The message to print
      */
     public MessageEvent(int date, String message) {
         super(date);

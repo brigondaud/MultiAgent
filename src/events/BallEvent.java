@@ -33,22 +33,22 @@ public class BallEvent extends Event {
      * Initiate the event with a date and the balls on which the event can
      * execute the movement, with a given velocity.
      *
-     * @param date      The date to fire the event.
-     * @param events    The events to simulate a continuous movement.
-     * @param balls     The balls associated with the event.
-     * @param velocity  The velocity of the balls.
+     * @param date The date to fire the event.
+     * @param events The events to simulate a continuous movement.
+     * @param balls The balls associated with the event.
+     * @param velocity The velocity of the balls.
      */
     public BallEvent(long date, EventManager events, Balls balls, Point velocity) {
         super(date);
-        
+
         this.balls = balls;
         this.velocity = velocity;
         this.events = events;
     }
 
     /**
-     * The execution of the event translates the balls and generates another event
-     * to simulate the continuous movement.
+     * The execution of the event translates the balls and generates another
+     * event to simulate the continuous movement.
      */
     @Override
     public void execute() {

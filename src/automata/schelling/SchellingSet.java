@@ -9,14 +9,12 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Represents a set designed for the Schelling simulation.
- * This set is based on Java util's Collections.
- * 
- * It performs the following operations:
- * - Add in O(1) ;
- * - Remove in O(1) ;
- * - Remove random in O(1) ;
- * 
+ * Represents a set designed for the Schelling simulation. This set is based on
+ * Java util's Collections.
+ *
+ * It performs the following operations: - Add in O(1) ; - Remove in O(1) ; -
+ * Remove random in O(1) ;
+ *
  * @author Team 22 in Teide
  * @param <T> The class of the content of this set (here, SchellingCell).
  */
@@ -26,7 +24,7 @@ public class SchellingSet<T> extends AbstractSet<T> implements Set<T> {
      * The list for fast random access.
      */
     private List<T> list = new ArrayList<>();
-    
+
     /**
      * The map for fast addition and remove operations.
      */
@@ -64,7 +62,7 @@ public class SchellingSet<T> extends AbstractSet<T> implements Set<T> {
 
     /**
      * Remove a random element from the set.
-     * 
+     *
      * @see SchellingSet#remove
      * @return null if the set is empty
      */
@@ -81,7 +79,7 @@ public class SchellingSet<T> extends AbstractSet<T> implements Set<T> {
 
     /**
      * Remove all elements from the set.
-     * 
+     *
      * @see SchellingSet#remove
      */
     public void removeAll() {

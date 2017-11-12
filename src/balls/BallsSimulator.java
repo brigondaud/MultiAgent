@@ -4,6 +4,8 @@ import gui.*;
 import java.awt.Point;
 import events.EventManager;
 import events.BallEvent;
+import java.awt.Color;
+import systems.AbstractSystem;
 
 /**
  * Behavior for the simulator of balls.
@@ -11,7 +13,7 @@ import events.BallEvent;
  * @author Team 22 in Teide
  * @version 1.0
  */
-public class BallsSimulator implements Simulable {
+public class BallsSimulator extends AbstractSystem {
 
     /**
      * The group of balls to simulate.
@@ -24,31 +26,20 @@ public class BallsSimulator implements Simulable {
     private final Point velocity;
 
     /**
-     * The GUI in which the simulator is set.
-     */
-    private final GUISimulator gui;
-
-    /**
-     * The event manager that registers the balls movement.
-     */
-    private final EventManager events;
-
-    /**
      * Constructor {gui}.
-     * 
-     * @param gui   The graphical user interface of balls.
      */
-    public BallsSimulator(GUISimulator gui) {
-        this.gui = gui;
+    public BallsSimulator() {
+        this.gui = new GUISimulator(500, 500, Color.BLACK);
+
         this.velocity = new Point(5, 5);
         this.balls = new BouncingBalls(10, velocity, gui.getPanelWidth(), gui.getPanelHeight());
-        
+
         for (int i = 0; i < balls.getBallNumber(); i++) {
             gui.addGraphicalElement(balls.getGraphicalBall(i));
         }
-        
+
         this.events = new EventManager();
-        
+
         // Adds an initial event to make the balls move when the simulation starts.
         events.addEvent(new BallEvent(1, events, balls, velocity));
     }
@@ -73,4 +64,10 @@ public class BallsSimulator implements Simulable {
         }
     }
 
+    @Override
+    public GUISimulator simulate() {
+        this.gui.setSimulable(this);
+
+        return this.gui;
+    }
 }

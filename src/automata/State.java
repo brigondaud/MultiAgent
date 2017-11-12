@@ -24,21 +24,19 @@ import java.util.Random;
 public class State {
 
     /**
-     * The id of the state.
-     * In a set of states for an automaton, the state's id
+     * The id of the state. In a set of states for an automaton, the state's id
      * should be unique. It greatly make the transition function easier.
      */
     private int id;
 
     /**
-     * The (optional) name of the state.
-     * Used for printing. Default value: "".
+     * The (optional) name of the state. Used for printing. Default value: "".
      */
     private String name;
 
     /**
-     * The (optional) color of the state.
-     * Used for graphics. Default value: a random color.
+     * The (optional) color of the state. Used for graphics. Default value: a
+     * random color.
      */
     private Color color;
 

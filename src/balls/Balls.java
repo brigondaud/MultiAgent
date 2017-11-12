@@ -8,8 +8,8 @@ import gui.GraphicalElement;
 import gui.Oval;
 
 /**
- * Vector of Balls represented by Points.
- * This modelisation fits with the wording.
+ * Vector of Balls represented by Points. This modelisation fits with the
+ * wording.
  *
  * @author Team 22 in Teide
  * @version 1.0
@@ -20,12 +20,12 @@ public class Balls implements GraphicalElement {
      * (Graphic option). The color inside the balls.
      */
     private final static Color drawColor = Color.decode("#B5A3C4");
-    
+
     /**
      * (Graphic option). The color outside the balls.
      */
     private final static Color fillColor = Color.decode("#4D8FAC");
-    
+
     /**
      * (Graphic option). The size of the balls.
      */
@@ -55,10 +55,10 @@ public class Balls implements GraphicalElement {
      * Creates ballNumber balls with random coordinates between maxWidth and
      * maxHeight.
      *
-     * @param ballNumber    The number of balls.
-     * @param initVelocity  The initial velocity of balls.
-     * @param maxWidth      The maximum X to generate a ball.
-     * @param maxHeight     The maximum Y to generate a ball.
+     * @param ballNumber The number of balls.
+     * @param initVelocity The initial velocity of balls.
+     * @param maxWidth The maximum X to generate a ball.
+     * @param maxHeight The maximum Y to generate a ball.
      */
     public Balls(int ballNumber, Point initVelocity, int maxWidth, int maxHeight) {
         this.ballNumber = ballNumber;
@@ -71,7 +71,7 @@ public class Balls implements GraphicalElement {
         for (int i = 0; i < balls.length; i++) {
             int initX = coordsGenerator.nextInt(maxWidth);
             int initY = coordsGenerator.nextInt(maxHeight);
-            
+
             this.initBalls[i] = new Point(initX, initY);
             this.balls[i] = new Point(initX, initY);
             this.graphicalBalls[i] = new Oval(initX, initY, drawColor, fillColor, ballSize);
@@ -117,7 +117,7 @@ public class Balls implements GraphicalElement {
 
     /**
      * Print all the balls as a couple of coordinates.
-     * 
+     *
      * @return The stringified version of the object.
      */
     @Override
@@ -132,8 +132,8 @@ public class Balls implements GraphicalElement {
     /**
      * Move all the balls along the x axis and y axis from dx and dy.
      *
-     * @param dx    The translation along the x-axis.
-     * @param dy    The translation along the y-axis.
+     * @param dx The translation along the x-axis.
+     * @param dy The translation along the y-axis.
      */
     public void translate(int dx, int dy) {
         for (int i = 0; i < balls.length; i++) {
@@ -154,7 +154,7 @@ public class Balls implements GraphicalElement {
 
     /**
      * Draw the ball on the GUI.
-     * 
+     *
      * @param g2d The graphical instance in which to paint balls.
      */
     @Override

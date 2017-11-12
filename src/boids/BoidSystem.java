@@ -2,7 +2,6 @@ package boids;
 
 import events.BoidEvent;
 import gui.GUISimulator;
-import gui.Rectangle;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import systems.AbstractSystem;
  * @version 1.0
  */
 public class BoidSystem extends AbstractSystem {
-    
+
     /**
      * The flocks (groups) of boids. Each flock may have its own rules.
      */
@@ -45,14 +44,11 @@ public class BoidSystem extends AbstractSystem {
         this.setHeight(height);
     }
 
-    
     @Override
     public GUISimulator simulate() {
         this.gui = new GUISimulator(this.width, this.height, Color.WHITE);
         this.gui.setSimulable(this);
         this.registerIcons();
-        
-        this.gui.addGraphicalElement(new Rectangle(width / 2, height / 2, Color.GRAY, null, width, height));
 
         return this.gui;
     }

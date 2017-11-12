@@ -21,15 +21,16 @@ public class AutomatonEvent extends Event {
      * Initiate the event with a given date and the automaton on which the event
      * will be executed.
      *
-     * @param date      The date to fire the event.
+     * @param date The date to fire the event.
      * @param automaton The associated automaton with this event.
      */
     public AutomatonEvent(long date, Automaton automaton) {
         super(date);
-        
-        if (automaton == null)
+
+        if (automaton == null) {
             throw new IllegalArgumentException("Automaton cannot be null");
-                
+        }
+
         this.automaton = automaton;
     }
 
@@ -41,7 +42,7 @@ public class AutomatonEvent extends Event {
     @Override
     public void execute() {
         automaton.executeEvent();
-        
+
         // Generates another event in the event manager
         automaton.getEvents().addEvent(new AutomatonEvent(getDate() + 1, automaton));
     }

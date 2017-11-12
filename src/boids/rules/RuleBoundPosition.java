@@ -4,9 +4,9 @@ import boids.Boid;
 import boids.utils.Vector2D;
 
 /**
- * Represents a rule which bounds boids in a specific rectangle.
- * Useful to force the boids to stay inside the window.
- * 
+ * Represents a rule which bounds boids in a specific rectangle. Useful to force
+ * the boids to stay inside the window.
+ *
  * @author Team 22 in Teide
  * @version 1.0
  */

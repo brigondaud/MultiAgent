@@ -50,7 +50,7 @@ abstract public class AbstractSystem implements Simulable {
     public EventManager getEvents() {
         return this.events;
     }
-    
+
     /**
      * Any multi-agent system could be simulated.
      *

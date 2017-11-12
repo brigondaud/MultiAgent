@@ -20,20 +20,17 @@ import java.awt.Color;
 public class Grid {
 
     /**
-     * The height of the grid (n).
-     * Should be > 0.
+     * The height of the grid (n). Should be > 0.
      */
     private int height;
 
     /**
-     * The width of the grid (m).
-     * Should be > 0.
+     * The width of the grid (m). Should be > 0.
      */
     private int width;
 
     /**
-     * The automaton associated to the grid.
-     * Used to access the cell model.
+     * The automaton associated to the grid. Used to access the cell model.
      */
     private final Automaton automaton;
 
