@@ -146,7 +146,7 @@ abstract public class Automaton extends AbstractSystem {
      * to the automaton, so this method will be called in child classes only.
      *
      * Possible states are shared by all cells. So they should be created in the
-     * automaton and passed to the cells then.
+     * automaton and then given to the cells.
      *
      * @return The list of possible states
      */

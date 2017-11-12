@@ -96,7 +96,7 @@ public class SchellingSet<T> extends AbstractSet<T> implements Set<T> {
 
     @Override
     public boolean contains(Object o) {
-        return indexMap.containsKey((T) o);
+        return indexMap.containsKey(o);
     }
 
     @Override

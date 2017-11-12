@@ -105,7 +105,7 @@ public class GraphicalBoid implements GraphicalElement {
     }
 
     /**
-     * Rotates the graphical boid from a given angle.
+     * Rotates the graphical to a given velocity.
      *
      * @param newVelocity The new velocity for the polygon.
      */
