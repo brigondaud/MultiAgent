@@ -30,16 +30,16 @@ public class BallsSimulator extends AbstractSystem {
      */
     public BallsSimulator() {
         this.gui = new GUISimulator(500, 500, Color.BLACK);
-        
+
         this.velocity = new Point(5, 5);
         this.balls = new BouncingBalls(10, velocity, gui.getPanelWidth(), gui.getPanelHeight());
-        
+
         for (int i = 0; i < balls.getBallNumber(); i++) {
             gui.addGraphicalElement(balls.getGraphicalBall(i));
         }
-        
+
         this.events = new EventManager();
-        
+
         // Adds an initial event to make the balls move when the simulation starts.
         events.addEvent(new BallEvent(1, events, balls, velocity));
     }
@@ -67,7 +67,7 @@ public class BallsSimulator extends AbstractSystem {
     @Override
     public GUISimulator simulate() {
         this.gui.setSimulable(this);
-        
+
         return this.gui;
     }
 }

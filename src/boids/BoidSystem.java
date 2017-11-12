@@ -15,7 +15,7 @@ import systems.AbstractSystem;
  * @version 1.0
  */
 public class BoidSystem extends AbstractSystem {
-    
+
     /**
      * The flocks (groups) of boids. Each flock may have its own rules.
      */
@@ -45,13 +45,12 @@ public class BoidSystem extends AbstractSystem {
         this.setHeight(height);
     }
 
-    
     @Override
     public GUISimulator simulate() {
         this.gui = new GUISimulator(this.width, this.height, Color.WHITE);
         this.gui.setSimulable(this);
         this.registerIcons();
-        
+
         return this.gui;
     }
 

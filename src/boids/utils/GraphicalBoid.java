@@ -55,34 +55,32 @@ public class GraphicalBoid implements GraphicalElement {
      */
     private final int boidSize;
 
-    
     /**
      * Initiates the GraphicalBoid with a location (that will be used to compute
      * the polygon that will be drawn on the gui), a fill and draw color, and a
      * size.
      *
-     * @param location  The location on the polygon in the 2D plane.
-     * @param velocity  The velocity to represent the orientation.
+     * @param location The location on the polygon in the 2D plane.
+     * @param velocity The velocity to represent the orientation.
      * @param drawColor The color to draw the shape of the polygon.
      * @param fillColor The color to fill in the shape with.
-     * @param boidSize  The size of the polygon.
+     * @param boidSize The size of the polygon.
      */
     public GraphicalBoid(Vector2D location, Vector2D velocity, Color drawColor, Color fillColor, int boidSize) {
         this.location = location;
         this.velocity = velocity;
-        
+
         this.drawColor = drawColor;
         this.fillColor = fillColor;
-        
+
         this.boidSize = boidSize;
         this.xLocation = new int[3];
         this.yLocation = new int[3];
-        
+
         // Initiates the polygon that will be drawn on the gui.
         computePolygon();
     }
 
-    
     /**
      * Computes the polygon (triangle) that will be drawn on the gui.
      */
@@ -91,13 +89,13 @@ public class GraphicalBoid implements GraphicalElement {
         int x = (int) location.getX();
         int y = (int) location.getY();
         double angle = velocity.angle();
-        
+
         xLocation[0] = x + (int) (boidSize * Math.cos(angle));
         yLocation[0] = y + (int) (boidSize * Math.sin(angle));
-        
+
         xLocation[1] = x + (int) ((boidSize / 3) * Math.cos(angle + Math.PI / 2));
         yLocation[1] = y + (int) ((boidSize / 3) * Math.sin(angle + Math.PI / 2));
-        
+
         xLocation[2] = x + (int) ((boidSize / 3) * Math.cos(angle - Math.PI / 2));
         yLocation[2] = y + (int) ((boidSize / 3) * Math.sin(angle - Math.PI / 2));
 
@@ -117,8 +115,8 @@ public class GraphicalBoid implements GraphicalElement {
     /**
      * Translates the graphical boid with given dx and dy.
      *
-     * @param dx    The translation along the x-axis.
-     * @param dy    The translation along the y-axis.
+     * @param dx The translation along the x-axis.
+     * @param dy The translation along the y-axis.
      */
     public void translate(int dx, int dy) {
         boid.translate(dx, dy);
@@ -126,7 +124,7 @@ public class GraphicalBoid implements GraphicalElement {
 
     /**
      * Draws the boid.
-     * 
+     *
      * @param g2d A graphical instance to paint the polygon.
      */
     @Override

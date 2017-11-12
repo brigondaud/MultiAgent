@@ -8,9 +8,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Represents a 2D automaton for the Schelling automaton.
- * In this simulation, cells are families moving when there
- * are to much families with other colours around them.
+ * Represents a 2D automaton for the Schelling automaton. In this simulation,
+ * cells are families moving when there are to much families with other colours
+ * around them.
  *
  * @author Team 22 in Teide
  * @version 1.0
@@ -18,14 +18,12 @@ import java.util.List;
 public class SchellingAutomaton extends Automaton {
 
     /**
-     * Number of colors.
-     * Should be > 0.
+     * Number of colors. Should be > 0.
      */
     private final int colorsNumber;
 
     /**
-     * Thresold for a cell move.
-     * Should be > 0.
+     * Thresold for a cell move. Should be > 0.
      */
     private final int thresold;
 
@@ -38,11 +36,11 @@ public class SchellingAutomaton extends Automaton {
      * Schelling Automaton constructor {height, width, cellSize, colorsNumber,
      * thresold}.
      *
-     * @param height        The number of vertical cells.
-     * @param width         The number of horizontal cells.
-     * @param cellSize      The size of a cell, in pixels.
-     * @param colorsNumber  The number of colors (different family types).
-     * @param thresold      The thresold to make a family move.
+     * @param height The number of vertical cells.
+     * @param width The number of horizontal cells.
+     * @param cellSize The size of a cell, in pixels.
+     * @param colorsNumber The number of colors (different family types).
+     * @param thresold The thresold to make a family move.
      */
     public SchellingAutomaton(int height, int width, int cellSize, int colorsNumber, int thresold) {
         super(height, width, cellSize);

@@ -5,9 +5,9 @@ import boids.BoidGroup;
 import boids.utils.Vector2D;
 
 /**
- * Represents a rule where a boid keeps distance with other boids.
- * Useful to avoid boids overlapping.
- * 
+ * Represents a rule where a boid keeps distance with other boids. Useful to
+ * avoid boids overlapping.
+ *
  * @author Team 22 in Teide
  * @version 1.0
  */
@@ -27,12 +27,11 @@ public class RuleKeepDistance extends Rule {
      */
     private double distance;
 
-    
     /**
      * Constructor of the rule {flock, distance}.
-     * 
-     * @param flock     The flock to keep distance with.
-     * @param distance  The distance to keep.
+     *
+     * @param flock The flock to keep distance with.
+     * @param distance The distance to keep.
      */
     public RuleKeepDistance(BoidGroup flock, double distance) {
         this.flock = flock;
@@ -40,17 +39,16 @@ public class RuleKeepDistance extends Rule {
     }
 
     /**
-     * Constructor of the rule {flock}.
-     * The distance is arbitrarily set to 15 by default.
-     * 
-     * @param flock     The flock to keep distance with.
+     * Constructor of the rule {flock}. The distance is arbitrarily set to 15 by
+     * default.
+     *
+     * @param flock The flock to keep distance with.
      */
     public RuleKeepDistance(BoidGroup flock) {
         this.flock = flock;
         this.distance = 15;
     }
 
-    
     @Override
     public Vector2D applyRule(Boid boid) {
         Vector2D force = new Vector2D(0, 0);
@@ -61,14 +59,13 @@ public class RuleKeepDistance extends Rule {
             }
         }
 
-         force.divideBy(5);
+        force.divideBy(5);
         return force;
     }
 
     /**
-     * Distance setter.
-     * Should be > 0.
-     * 
+     * Distance setter. Should be > 0.
+     *
      * @param distance The new distance for this rule.
      */
     private void setDistance(double distance) {

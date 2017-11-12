@@ -37,7 +37,7 @@ public class Boid {
      */
     private GraphicalBoid icon;
     private final Color fillColor;
-    
+
     /**
      * The maximum speed of the boid.
      */
@@ -48,12 +48,11 @@ public class Boid {
      */
     private static final int ICON_SIZE = 15;
 
-    
     /**
      * Constructor of a boid {x, y, fillColor}.
-     * 
-     * @param x         The x-coordinate where to place the boid.
-     * @param y         The y-coordinate where to place the boid.
+     *
+     * @param x The x-coordinate where to place the boid.
+     * @param y The y-coordinate where to place the boid.
      * @param fillColor The color to fill in the boid with.
      */
     public Boid(int x, int y, Color fillColor) {
@@ -64,14 +63,14 @@ public class Boid {
         this.fillColor = fillColor;
         this.draw(fillColor);
     }
-    
+
     /**
      * Constructor of a boid, with max speed {x, y, fillColor, maxSpeed}.
-     * 
-     * @param x         The x-coordinate where to place the boid.
-     * @param y         The y-coordinate where to place the boid.
+     *
+     * @param x The x-coordinate where to place the boid.
+     * @param y The y-coordinate where to place the boid.
      * @param fillColor The color to fill in the boid with.
-     * @param maxSpeed  The maximum speed for a boid.
+     * @param maxSpeed The maximum speed for a boid.
      */
     public Boid(int x, int y, Color fillColor, double maxSpeed) {
         this.initLocation = new Vector2D(x, y);
@@ -82,41 +81,39 @@ public class Boid {
         this.draw(fillColor);
     }
 
-    
     /**
-     * Update the velocity and the location of a boid.
-     * The update is a simple application of boid rules
-     * as they are described in the wording.
+     * Update the velocity and the location of a boid. The update is a simple
+     * application of boid rules as they are described in the wording.
      */
     public final void update() {
         Vector2D newLoc = new Vector2D(0, 0);
 
         this.velocity.add(this.acceleration); // Speed rule application
         this.limitVelocity();
-        
+
         newLoc.add(this.velocity);
 
         //Rotate the icon towards its new velocity
         this.icon.rotateTo(this.velocity);
-        
+
         // Move the icon
         this.icon.translate((int) newLoc.getX(), (int) newLoc.getY());
 
         this.location.add(this.velocity); // Location rule application
     }
-    
+
     /**
      * Limit the speed/velocity of the boid.
-     * 
-     * Boids tend to go faster as long as the simulation continues.
-     * In real life, animals do not speed up endlessly.
-     * 
-     * This is not a real rule, it is applied after force computation.
-     * It normalizes the velocity of the boid with the definied limit.
+     *
+     * Boids tend to go faster as long as the simulation continues. In real
+     * life, animals do not speed up endlessly.
+     *
+     * This is not a real rule, it is applied after force computation. It
+     * normalizes the velocity of the boid with the definied limit.
      */
     public void limitVelocity() {
         double magnitude = this.velocity.magnitude();
-        
+
         if (magnitude > maxSpeed) {
             this.velocity.divideBy(magnitude);
             this.velocity.multiplyBy(maxSpeed);
@@ -124,8 +121,8 @@ public class Boid {
     }
 
     /**
-     * Restart the boid.
-     * The initial location is restored and the boid is redrawn.
+     * Restart the boid. The initial location is restored and the boid is
+     * redrawn.
      */
     public final void restart() {
         this.acceleration = new Vector2D(0, 0);
@@ -137,7 +134,7 @@ public class Boid {
 
     /**
      * Draw the boid.
-     * 
+     *
      * @param fillColor The color to fill in the boid with.
      */
     public final void draw(Color fillColor) {
@@ -146,7 +143,7 @@ public class Boid {
 
     /**
      * Location getter.
-     * 
+     *
      * @return The location of the boid as a 2D vector.
      */
     public Vector2D getLocation() {
@@ -155,7 +152,7 @@ public class Boid {
 
     /**
      * Velocity getter.
-     * 
+     *
      * @return The velocity of the boid as a 2D vector.
      */
     public Vector2D getVelocity() {
@@ -164,7 +161,7 @@ public class Boid {
 
     /**
      * Acceleration getter.
-     * 
+     *
      * @return The acceleration of the boid as a 2D vector.
      */
     public Vector2D getAcceleration() {
@@ -172,9 +169,8 @@ public class Boid {
     }
 
     /**
-     * Acceleration setter.
-     * Once the acceleration is set, everything follows.
-     * 
+     * Acceleration setter. Once the acceleration is set, everything follows.
+     *
      * @param newAcc The new acceleration of the boid.
      */
     public void setAcceleration(Vector2D newAcc) {
@@ -187,9 +183,9 @@ public class Boid {
 
     /**
      * Get distance between this boid and another one.
-     * 
-     * @param boid  The other boid.
-     * @return      The Euclidean distance between two boids.
+     *
+     * @param boid The other boid.
+     * @return The Euclidean distance between two boids.
      */
     public double getDistance(Boid boid) {
         if (boid == null) {
@@ -201,7 +197,7 @@ public class Boid {
 
     /**
      * Icon getter.
-     * 
+     *
      * @return The icon (drawing) of the boid.
      */
     public GraphicalBoid getIcon() {

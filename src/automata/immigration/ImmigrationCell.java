@@ -7,8 +7,8 @@ import automata.Grid;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Represents of a cell for Immigration Game.
- * This class extends the abstract cell model.
+ * Represents of a cell for Immigration Game. This class extends the abstract
+ * cell model.
  *
  * @author Team 22 in Teide
  * @version 1.0
@@ -17,19 +17,19 @@ public class ImmigrationCell extends Cell {
 
     /**
      * Constructor of the cell {grid, i, j, states}.
-     * 
-     * @param grid      The grid in which the cell evolves.
-     * @param i         The i-index of the cell.
-     * @param j         The j-index of the cell.
-     * @param states    A reference of the possible states.
+     *
+     * @param grid The grid in which the cell evolves.
+     * @param i The i-index of the cell.
+     * @param j The j-index of the cell.
+     * @param states A reference of the possible states.
      */
     public ImmigrationCell(Grid grid, int i, int j, List<State> states) {
         super(grid, i, j, states);
     }
-    
+
     /**
-     * Assign a state to a cell at its creation. Here the state assigned is chosen 
-     * randomly in the possible states.
+     * Assign a state to a cell at its creation. Here the state assigned is
+     * chosen randomly in the possible states.
      */
     @Override
     protected final State initState() {
@@ -48,9 +48,10 @@ public class ImmigrationCell extends Cell {
     @Override
     protected State nextState() {
         // If there's only one state: return the current state
-        if (states.size() == 1)
+        if (states.size() == 1) {
             return this.state;
-        
+        }
+
         int followingID = (this.getState().getID() + 1) % states.size();
         State followingState = states.get(followingID);
 

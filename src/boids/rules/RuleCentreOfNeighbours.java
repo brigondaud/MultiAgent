@@ -5,9 +5,9 @@ import boids.BoidGroup;
 import boids.utils.Vector2D;
 
 /**
- * Represents a rule which regroups boids.
- * Useful to encourage boids in a same group to meet.
- * 
+ * Represents a rule which regroups boids. Useful to encourage boids in a same
+ * group to meet.
+ *
  * @author Team 22 in Teide
  * @version 1.0
  */
@@ -27,12 +27,11 @@ public class RuleCentreOfNeighbours extends Rule {
      */
     private double distance;
 
-    
     /**
      * Constructor of the rule {flock, distance}.
-     * 
-     * @param flock     The flock to approach as a boid.
-     * @param distance  The maximum distance to compose the neighbourhood.
+     *
+     * @param flock The flock to approach as a boid.
+     * @param distance The maximum distance to compose the neighbourhood.
      */
     public RuleCentreOfNeighbours(BoidGroup flock, double distance) {
         this.flock = flock;
@@ -40,17 +39,16 @@ public class RuleCentreOfNeighbours extends Rule {
     }
 
     /**
-     * Constructor of the rule {flock}.
-     * The distance is set to the maximum by default.
-     * 
-     * @param flock     The flock to approach as a boid.
+     * Constructor of the rule {flock}. The distance is set to the maximum by
+     * default.
+     *
+     * @param flock The flock to approach as a boid.
      */
     public RuleCentreOfNeighbours(BoidGroup flock) {
         this.flock = flock;
         this.distance = Double.MAX_VALUE;
     }
 
-    
     @Override
     public Vector2D applyRule(Boid boid) {
         Vector2D force = new Vector2D(0, 0);
@@ -71,9 +69,8 @@ public class RuleCentreOfNeighbours extends Rule {
     }
 
     /**
-     * Distance setter.
-     * Should be > 0.
-     * 
+     * Distance setter. Should be > 0.
+     *
      * @param distance The new distance for this rule.
      */
     private void setDistance(double distance) {

@@ -11,9 +11,7 @@ import java.util.List;
  * Represents a 2D automaton for Conway's Game of Life. This class extends the
  * abstract automaton model.
  *
- * Their are 2 possible states :
- * - State("Alive")
- * - State("Dead")
+ * Their are 2 possible states : - State("Alive") - State("Dead")
  *
  * @author Team 22 in Teide
  * @version 1.0

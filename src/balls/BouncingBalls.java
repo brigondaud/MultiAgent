@@ -4,11 +4,12 @@ import java.awt.Point;
 
 /**
  * Possible directions for the balls.
- * 
+ *
  * @author Team 22 in Teide
  * @version 1.0
  */
 enum Direction {
+
     TOPLEFT,
     TOPRIGHT,
     BOTTOMLEFT,
@@ -44,18 +45,17 @@ public class BouncingBalls extends Balls {
      */
     private final int maxHeight;
 
-    
     /**
      * Constructor of bouncing balls.
-     * 
-     * @param ballNumber    The number of balls in this simulation.
-     * @param initVelocity  The initial velocity of bouncing balls.
-     * @param maxWidth      The maximum X to draw a ball.
-     * @param maxHeight     The maximum Y to draw a ball.
+     *
+     * @param ballNumber The number of balls in this simulation.
+     * @param initVelocity The initial velocity of bouncing balls.
+     * @param maxWidth The maximum X to draw a ball.
+     * @param maxHeight The maximum Y to draw a ball.
      */
     public BouncingBalls(int ballNumber, Point initVelocity, int maxWidth, int maxHeight) {
         super(ballNumber, initVelocity, maxWidth, maxHeight);
-        
+
         this.maxWidth = maxWidth;
         this.maxHeight = maxHeight;
         ballsDirections = new Direction[ballNumber];
@@ -72,7 +72,7 @@ public class BouncingBalls extends Balls {
         } else {
             initDirection = Direction.STILL;
         }
-        
+
         for (int i = 0; i < ballNumber; i++) {
             ballsDirections[i] = initDirection;
         }
@@ -91,7 +91,7 @@ public class BouncingBalls extends Balls {
 
     /**
      * Prints all the balls as a couple of coordinates.
-     * 
+     *
      * @return The stringified version of the bouncing balls.
      */
     @Override
@@ -157,10 +157,10 @@ public class BouncingBalls extends Balls {
                 case STILL:
                     break;
             }
-            
+
             ball.translate(dx, dy);
             getGraphicalBall(i).translate(dx, dy);
-            
+
             // Reset the move for the next ball
             dx = initDx;
             dy = initDy;

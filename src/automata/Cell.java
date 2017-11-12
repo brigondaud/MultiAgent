@@ -202,8 +202,8 @@ abstract public class Cell extends AbstractAgent {
     abstract protected State initState();
 
     /**
-     * Assigns the next state of the cell. Cells evolve due to their
-     * neighbours. Each cell should always have a state.
+     * Assigns the next state of the cell. Cells evolve due to their neighbours.
+     * Each cell should always have a state.
      *
      * This method is not intended to assign the future state. It's the
      * "transition function" of the automaton.
