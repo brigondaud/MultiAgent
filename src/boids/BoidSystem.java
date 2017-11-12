@@ -2,7 +2,6 @@ package boids;
 
 import events.BoidEvent;
 import gui.GUISimulator;
-import gui.Rectangle;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
