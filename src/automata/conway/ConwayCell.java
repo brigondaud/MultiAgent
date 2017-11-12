@@ -10,11 +10,19 @@ import java.util.concurrent.ThreadLocalRandom;
  * Represents of a cell for Conway's Game of Life. This class extends the
  * abstract cell model.
  *
- * @author Aurélien Pepin, Baptiste Rigondaud, Valentin Sicard
+ * @author Team 22 in Teide
  * @version 1.0
  */
 public class ConwayCell extends Cell {
 
+    /**
+     * Conway constructor {grid, i, j, states}.
+     * 
+     * @param grid      The grid in which the cell evolves.
+     * @param i         The i-index of the cell.
+     * @param j         The j-index of the cell.
+     * @param states    A reference of the possible states.
+     */
     public ConwayCell(Grid grid, int i, int j, List<State> states) {
         super(grid, i, j, states);
     }

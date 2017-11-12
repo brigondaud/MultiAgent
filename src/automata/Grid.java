@@ -14,23 +14,26 @@ import java.awt.Color;
  *
  * @see Cell
  *
- * @author Aurélien Pepin
+ * @author Team 22 in Teide
  * @version 1.0
  */
 public class Grid {
 
     /**
-     * The height of the grid (n). Should be > 0.
+     * The height of the grid (n).
+     * Should be > 0.
      */
     private int height;
 
     /**
-     * The width of the grid (m). Should be > 0.
+     * The width of the grid (m).
+     * Should be > 0.
      */
     private int width;
 
     /**
-     * The automaton associated to the grid. Used to access the cell model.
+     * The automaton associated to the grid.
+     * Used to access the cell model.
      */
     private final Automaton automaton;
 
@@ -235,8 +238,8 @@ public class Grid {
     /**
      * Cell getter.
      *
-     * @param i
-     * @param j
+     * @param i The vertically i^th cell
+     * @param j The horizontally j^th cell
      * @return The cell at the position (i, j)
      */
     public Cell get(int i, int j) {

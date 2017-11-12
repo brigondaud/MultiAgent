@@ -7,14 +7,22 @@ import automata.Grid;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Represents of a cell for Immigration Game. This class extends the abstract
- * cell model.
+ * Represents of a cell for Immigration Game.
+ * This class extends the abstract cell model.
  *
- * @author Aurélien Pepin, Baptiste Rigondaud, Valentin Sicard
+ * @author Team 22 in Teide
  * @version 1.0
  */
 public class ImmigrationCell extends Cell {
 
+    /**
+     * Constructor of the cell {grid, i, j, states}.
+     * 
+     * @param grid      The grid in which the cell evolves.
+     * @param i         The i-index of the cell.
+     * @param j         The j-index of the cell.
+     * @param states    A reference of the possible states.
+     */
     public ImmigrationCell(Grid grid, int i, int j, List<State> states) {
         super(grid, i, j, states);
     }
@@ -32,27 +40,13 @@ public class ImmigrationCell extends Cell {
     @Override
     protected State nextState() {
         // If there's only one state: return the current state
-        if (states.size() == 1) {
+        if (states.size() == 1)
             return this.state;
-        }
-
+        
         int followingID = (this.getState().getID() + 1) % states.size();
         State followingState = states.get(followingID);
 
         int neighbourCounter = this.countNeighbours(followingState);
         return (neighbourCounter >= 3) ? followingState : this.state;
-
-        // for (Cell neighbour : this.neighbours) {
-        // if (neighbour.getState().getID() == (this.getState().getID() + 1) %
-        // states.size()) {
-        // neighbourCounter++;
-        // }
-        // }
-        //
-        // if (neighbourCounter >= 3) {
-        // return states.get((this.getState().getID() + 1) % states.size());
-        // } else {
-        // return this.state;
-        // }
     }
 }

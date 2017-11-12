@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package boids.rules;
 
 import boids.Boid;
@@ -10,8 +5,11 @@ import boids.BoidGroup;
 import boids.utils.Vector2D;
 
 /**
- *
- * @author Admin
+ * Represents a rule which regroups boids.
+ * Useful to encourage boids in a same group to meet.
+ * 
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class RuleCentreOfNeighbours extends Rule {
 
@@ -29,11 +27,24 @@ public class RuleCentreOfNeighbours extends Rule {
      */
     private double distance;
 
+    
+    /**
+     * Constructor of the rule {flock, distance}.
+     * 
+     * @param flock     The flock to approach as a boid.
+     * @param distance  The maximum distance to compose the neighbourhood.
+     */
     public RuleCentreOfNeighbours(BoidGroup flock, double distance) {
         this.flock = flock;
         this.setDistance(distance);
     }
 
+    /**
+     * Constructor of the rule {flock}.
+     * The distance is set to the maximum by default.
+     * 
+     * @param flock     The flock to approach as a boid.
+     */
     public RuleCentreOfNeighbours(BoidGroup flock) {
         this.flock = flock;
         this.distance = Double.MAX_VALUE;
@@ -59,6 +70,12 @@ public class RuleCentreOfNeighbours extends Rule {
         return force;
     }
 
+    /**
+     * Distance setter.
+     * Should be > 0.
+     * 
+     * @param distance The new distance for this rule.
+     */
     private void setDistance(double distance) {
         if (distance <= 0) {
             throw new IllegalArgumentException("[Rule] No negative distance.");

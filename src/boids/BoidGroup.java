@@ -1,10 +1,6 @@
 package boids;
 
 import boids.rules.Rule;
-import boids.rules.RuleBoundPosition;
-import boids.rules.RuleCentreOfNeighbours;
-import boids.rules.RuleKeepDistance;
-import boids.rules.RuleMatchVelocity;
 import boids.utils.Vector2D;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -16,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * Represents a group of boids with its own rules.
  *
- * @author Aurélien Pepin
+ * @author Team 22 in Teide
  * @version 1.0
  */
 public class BoidGroup {
@@ -29,7 +25,7 @@ public class BoidGroup {
     /**
      * The rules applying on this group.
      */
-    private List<Rule> rules;
+    private final List<Rule> rules;
 
     /**
      * The delay between two updates of the group.
@@ -46,6 +42,15 @@ public class BoidGroup {
      */
     private final int height;
 
+    
+    /**
+     * Constructor of a group of boids.
+     * 
+     * @param numberOfBoids The number of boids inside the group.
+     * @param width         The width of the window to init boids.
+     * @param height        The height of the window to init boids.
+     * @param delay         The delay between two groups events firing.
+     */
     public BoidGroup(int numberOfBoids, int width, int height, int delay) {
         this.width = width;
         this.height = height;
@@ -57,6 +62,7 @@ public class BoidGroup {
 
     /**
      * Update the group of boids with associated rules.
+     * If no rules, the update has no effect.
      */
     public void update() {
         Vector2D newAcceleration;
@@ -69,7 +75,6 @@ public class BoidGroup {
             newAcceleration = new Vector2D(0, 0);
 
             for (Rule rule : rules) {
-
                 newAcceleration.add(rule.applyRule(boid));
             }
 
@@ -135,14 +140,29 @@ public class BoidGroup {
         return this;
     }
 
+    /**
+     * Boids getter.
+     * 
+     * @return The list of boids inside this group.
+     */
     public List<Boid> getBoids() {
         return boids;
     }
 
+    /**
+     * Number of boids getter.
+     * 
+     * @return The size of the boids list, the number of boids.
+     */
     public int size() {
         return boids.size();
     }
 
+    /**
+     * Delay getter.
+     * 
+     * @return The delay between two updates.
+     */
     public int getDelay() {
         return delay;
     }

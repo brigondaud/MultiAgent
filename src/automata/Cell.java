@@ -2,7 +2,7 @@ package automata;
 
 import java.util.ArrayList;
 import java.util.List;
-import systems.Agent;
+import systems.AbstractAgent;
 
 /**
  * Represents a cell evolving in a grid.
@@ -11,10 +11,10 @@ import systems.Agent;
  *
  * @see Grid
  *
- * @author Aurélien Pepin
+ * @author Team 22 in Teide
  * @version 1.0
  */
-abstract public class Cell extends Agent {
+abstract public class Cell extends AbstractAgent {
 
     /**
      * The grid in which the cell evolves.

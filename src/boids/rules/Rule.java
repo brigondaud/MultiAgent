@@ -4,9 +4,9 @@ import boids.Boid;
 import boids.utils.Vector2D;
 
 /**
- * Rule represents a regulation which can be applied to a boid.
+ * Represents a regulation which can be applied to a boid.
  *
- * @author Baptiste Rigondaud
+ * @author Team 22 in Teide
  * @version 1.0
  */
 public abstract class Rule {

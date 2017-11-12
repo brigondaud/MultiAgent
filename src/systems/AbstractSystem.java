@@ -7,9 +7,10 @@ import gui.Simulable;
 /**
  * Represents the system in a multiagent system environment.
  *
+ * @author Team 22 in Teide
  * @version 1.0
  */
-abstract public class System implements Simulable {
+abstract public class AbstractSystem implements Simulable {
 
     /**
      * The GUI used by the system.
@@ -26,7 +27,7 @@ abstract public class System implements Simulable {
     /**
      * Constructor.
      */
-    public System() {
+    public AbstractSystem() {
         this.events = new EventManager();
     }
 
@@ -49,12 +50,7 @@ abstract public class System implements Simulable {
     public EventManager getEvents() {
         return this.events;
     }
-
-    /**
-     * Any system has associated event that can be executed when simulated.
-     */
-    public abstract void executeEvent();
-
+    
     /**
      * Any multi-agent system could be simulated.
      *

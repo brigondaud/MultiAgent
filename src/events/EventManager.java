@@ -1,14 +1,13 @@
 package events;
 
 import java.util.PriorityQueue;
-import events.Event;
 
 /**
  * The event manager manages the event by executing them in the correct order
  * (based on their date).
  *
- * @author Baptiste Rigondaud
- *
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class EventManager {
 

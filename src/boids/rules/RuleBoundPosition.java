@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package boids.rules;
 
 import boids.Boid;
 import boids.utils.Vector2D;
 
 /**
- *
- * @author Admin
+ * Represents a rule which bounds boids in a specific rectangle.
+ * Useful to force the boids to stay inside the window.
+ * 
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class RuleBoundPosition extends Rule {
 
@@ -37,7 +35,7 @@ public class RuleBoundPosition extends Rule {
     /**
      * The attraction to keep the boids in the bound rectangle.
      */
-    private int attraction;
+    private final int attraction;
 
     /**
      * Constructor.

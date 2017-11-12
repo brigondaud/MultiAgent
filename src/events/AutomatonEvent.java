@@ -7,25 +7,29 @@ import automata.Automaton;
  * manager of a cellular automaton. The event auto-generates other events in its
  * event manager to simulate a continuous evolution of the cellular automaton.
  *
- * @author Baptiste Rigondaud
- *
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class AutomatonEvent extends Event {
 
     /**
      * The automaton on which the event is executed.
      */
-    private Automaton automaton;
+    private final Automaton automaton;
 
     /**
      * Initiate the event with a given date and the automaton on which the event
      * will be executed.
      *
-     * @param date
-     * @param automaton
+     * @param date      The date to fire the event.
+     * @param automaton The associated automaton with this event.
      */
     public AutomatonEvent(long date, Automaton automaton) {
         super(date);
+        
+        if (automaton == null)
+            throw new IllegalArgumentException("Automaton cannot be null");
+                
         this.automaton = automaton;
     }
 
@@ -37,6 +41,7 @@ public class AutomatonEvent extends Event {
     @Override
     public void execute() {
         automaton.executeEvent();
+        
         // Generates another event in the event manager
         automaton.getEvents().addEvent(new AutomatonEvent(getDate() + 1, automaton));
     }

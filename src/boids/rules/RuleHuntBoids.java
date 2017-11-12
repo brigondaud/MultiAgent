@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package boids.rules;
 
 import boids.Boid;
@@ -10,8 +5,11 @@ import boids.BoidGroup;
 import boids.utils.Vector2D;
 
 /**
- *
- * @author Admin
+ * Represents a rule where a boid hunts the nearest prey boid.
+ * Useful to create a predator/prey environment.
+ * 
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class RuleHuntBoids extends Rule {
     
@@ -29,6 +27,12 @@ public class RuleHuntBoids extends Rule {
     private double distance;
     
     
+    /**
+     * Constructor of the rule {flock, distance}.
+     * 
+     * @param flock     The flock to hunt.
+     * @param distance  The minimum distance to spot a prey.
+     */
     public RuleHuntBoids(BoidGroup flock, double distance) {
         this.flock = flock;
         this.setDistance(distance);
@@ -63,6 +67,12 @@ public class RuleHuntBoids extends Rule {
         return force;
     }
     
+    /**
+     * Distance setter.
+     * Should be > 0.
+     * 
+     * @param distance The new distance for this rule.
+     */
     private void setDistance(double distance) {
         if (distance <= 0) {
             throw new IllegalArgumentException("[Rule] No negative distance.");

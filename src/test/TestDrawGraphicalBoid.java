@@ -2,7 +2,6 @@ package test;
 
 import java.awt.Color;
 
-import balls.BallsSimulator;
 import boids.utils.GraphicalBoid;
 import boids.utils.Vector2D;
 import gui.GUISimulator;
@@ -10,8 +9,7 @@ import gui.GUISimulator;
 /**
  * A class to test the drawing of the boids.
  *
- * @author Baptiste Rigondaud
- *
+ * @author Team 22 in Teide
  */
 public class TestDrawGraphicalBoid {
 

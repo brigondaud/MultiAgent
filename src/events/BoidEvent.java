@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package events;
 
 import boids.BoidGroup;
 import boids.BoidSystem;
 
 /**
- *
- * @author Admin
+ * Represents an event an a boid group to update the whole group.
+ * Each time a BoidEvent is fired, all rules are applied to boids.
+ * 
+ * @author Team 22 in Teide
+ * @version 1.0
  */
 public class BoidEvent extends Event {
 
@@ -25,6 +23,15 @@ public class BoidEvent extends Event {
      */
     private final BoidGroup flock;
 
+    
+    /**
+     * Constructor of the event {date, system, flock}.
+     * Neither the system nor the flock can be null.
+     * 
+     * @param date      The date to fire the event.
+     * @param system    The system to register the next event.
+     * @param flock     The flock to update.
+     */
     public BoidEvent(long date, BoidSystem system, BoidGroup flock) {
         super(date);
 
@@ -36,12 +43,12 @@ public class BoidEvent extends Event {
         this.system = system;
     }
 
+    
     @Override
     public void execute() {
         this.flock.update();
         BoidEvent nextEvent = new BoidEvent(this.getDate() + this.flock.getDelay(), system, flock);
 
         this.system.getEvents().addEvent(nextEvent);
-        this.system.executeEvent();
     }
 }
