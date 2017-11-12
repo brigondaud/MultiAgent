@@ -21,37 +21,81 @@
 #   -classpath : repertoire dans lequel sont cherches les .class deja compiles
 #   -sourcepath : repertoire dans lequel sont cherches les .java (dependances)
 
-all: testGUI TestBallsSimulator TestAutomata TestImmigrationGame
+all: TestAutomataConway TestAutomataImmigration TestAutomataSchelling TestBalls TestBallsSimulator TestBoidHunting TestBoidSystem TestBoidWinds TestDrawGraphicalBoid TestEventManager TestGUI
 
-testGUI:
-	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestGUI.java
+TestAutomataConway:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestAutomataConway.java
+
+TestAutomataImmigration:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestAutomataImmigration.java
+
+TestAutomataSchelling:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestAutomataSchelling.java
+
+TestBalls:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestBalls.java
 
 TestBallsSimulator:
 	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestBallsSimulator.java
 
-TestAutomata:
-	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestAutomata.java
+TestBoidHunting:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestBoidHunting.java
 
-TestImmigrationGame:
-	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestImmigrationGame.java
+TestBoidSystem:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestBoidSystem.java
+
+TestBoidWinds:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestBoidWinds.java
+
+TestDrawGraphicalBoid:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestDrawGraphicalBoid.java
+
+TestEventManager:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestEventManager.java
+
+TestGUI:
+	javac -d bin -classpath lib/gui.jar -sourcepath src src/test/TestGUI.java
 
 # Execution:
 # on peut taper directement la ligne de commande :
 #   > java -classpath bin TestGUI
 # ou bien lancer l'execution en passant par ce Makefile:
 #   > make exeIHM
-exeGUI:
-	java -classpath bin:lib/gui.jar test/TestGUI
 
-exeBallsSimulator:
+exeTestAutomataConway:
+	java -classpath bin:lib/gui.jar test/TestAutomataConway
+
+exeTestAutomataImmigration:
+	java -classpath bin:lib/gui.jar test/TestAutomataImmigration
+
+exeTestAutomataSchelling:
+	java -classpath bin:lib/gui.jar test/TestAutomataSchelling
+
+exeTestBalls:
+	java -classpath bin:lib/gui.jar test/TestBalls
+
+exeTestBallsSimulator:
 	java -classpath bin:lib/gui.jar test/TestBallsSimulator
 
-exeTestAutomata:
-	java -classpath bin:lib/gui.jar test/TestAutomata
+exeTestBoidHunting:
+	java -classpath bin:lib/gui.jar test/TestBoidHunting
 
-exeImmigrationGame:
-	java -classpath bin:lib/gui.jar test/TestImmigrationGame
+exeTestBoidSystem:
+	java -classpath bin:lib/gui.jar test/TestBoidSystem
 
+exeTestBoidWinds:
+	java -classpath bin:lib/gui.jar test/TestBoidWinds
+
+exeTestDrawGraphicalBoid:
+	java -classpath bin:lib/gui.jar test/TestDrawGraphicalBoid
+
+exeTestEventManager:
+	java -classpath bin:lib/gui.jar test/TestEventManager
+
+exeTestGUI:
+	java -classpath bin:lib/gui.jar test/TestGUI
+
+#Clean
 clean:
 	rm -rf bin/*.class
 

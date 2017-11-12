@@ -35,7 +35,7 @@ public class BallEvent extends Event {
      *
      * @param date      The date to fire the event.
      * @param events    The events to simulate a continuous movement.
-     * @param balls     The balls assoiated with the event.
+     * @param balls     The balls associated with the event.
      * @param velocity  The velocity of the balls.
      */
     public BallEvent(long date, EventManager events, Balls balls, Point velocity) {
