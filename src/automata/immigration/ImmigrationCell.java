@@ -26,7 +26,11 @@ public class ImmigrationCell extends Cell {
     public ImmigrationCell(Grid grid, int i, int j, List<State> states) {
         super(grid, i, j, states);
     }
-
+    
+    /**
+     * Assign a state to a cell at its creation. Here the state assigned is chosen 
+     * randomly in the possible states.
+     */
     @Override
     protected final State initState() {
         if (states.size() == 1) {
@@ -37,6 +41,10 @@ public class ImmigrationCell extends Cell {
         return states.get(randomIdState);
     }
 
+    /**
+     * Assign the next state of the cell. The next state is k+1 if there are at
+     * least more that 3 neighbours in the next state.
+     */
     @Override
     protected State nextState() {
         // If there's only one state: return the current state
