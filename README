@@ -1,13 +1,10 @@
 Ensimag 2A POO - TP 2017/18
 ============================
 
-- src: sources du projet
+- lib/gui.jar: the gui lib
+- doc: project documentation
 
-- lib/gui.jar: archive Java contenant les classes de l'interface graphique. Voir un exemple d'utilisation dans TestGUI.java
-
-- doc: la documentation du projet. Point d'entrée: doc/index.html
-
-- bin: binaires du projet
+- bin: binaries
 
 - Makefile:
 	make [all] [test]
