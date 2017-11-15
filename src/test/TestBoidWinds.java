@@ -10,7 +10,7 @@ import boids.rules.RuleStiffBreeze;
 
 /**
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  */
 public class TestBoidWinds {
 

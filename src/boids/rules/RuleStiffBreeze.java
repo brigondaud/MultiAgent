@@ -14,7 +14,7 @@ import boids.utils.Vector2D;
  *
  * (-10, -10) | (10, -10) -----------|----------- (-10, 10) | (10, 10)
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class RuleStiffBreeze extends Rule {

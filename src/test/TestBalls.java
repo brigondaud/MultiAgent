@@ -5,7 +5,7 @@ import balls.Balls;
 /**
  * Test file for the Balls.Balls class
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  */
 public class TestBalls {
 

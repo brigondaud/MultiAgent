@@ -8,7 +8,7 @@ import boids.utils.Vector2D;
  * Represents a rule where a boid keeps distance with other boids. Useful to
  * avoid boids overlapping.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class RuleKeepDistance extends Rule {

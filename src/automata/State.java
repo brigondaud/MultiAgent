@@ -18,7 +18,7 @@ import java.util.Random;
  * @see Automaton
  * @see Cell
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class State {

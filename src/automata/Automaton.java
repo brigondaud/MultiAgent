@@ -12,7 +12,7 @@ import systems.AbstractSystem;
  * This model is designed to fit with most of cellular agent-based models. It
  * encapsulates among others a grid (variable size) and drawing methods.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 abstract public class Automaton extends AbstractSystem {

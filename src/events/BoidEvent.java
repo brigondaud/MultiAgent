@@ -7,7 +7,7 @@ import boids.BoidSystem;
  * Represents an event an a boid group to update the whole group. Each time a
  * BoidEvent is fired, all rules are applied to boids.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class BoidEvent extends Event {

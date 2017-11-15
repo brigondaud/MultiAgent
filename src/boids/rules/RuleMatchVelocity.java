@@ -8,7 +8,7 @@ import boids.utils.Vector2D;
  * Represents a rule where a boid falls into line with other boids' velocity.
  * Useful to create consistency between boids in a group.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class RuleMatchVelocity extends Rule {

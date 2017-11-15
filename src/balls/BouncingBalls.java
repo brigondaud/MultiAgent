@@ -5,7 +5,7 @@ import java.awt.Point;
 /**
  * Possible directions for the balls.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 enum Direction {
@@ -20,7 +20,7 @@ enum Direction {
 /**
  * Vector of bouncing balls.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class BouncingBalls extends Balls {

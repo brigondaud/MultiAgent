@@ -6,7 +6,7 @@ import boids.utils.Vector2D;
 /**
  * Represents a regulation which can be applied to a boid.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public abstract class Rule {

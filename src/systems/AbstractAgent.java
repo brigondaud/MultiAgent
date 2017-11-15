@@ -3,7 +3,7 @@ package systems;
 /**
  * Represents the agent in a multiagent system environment.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 abstract public class AbstractAgent {

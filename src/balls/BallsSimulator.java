@@ -10,7 +10,7 @@ import systems.AbstractSystem;
 /**
  * Behavior for the simulator of balls.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class BallsSimulator extends AbstractSystem {

@@ -7,7 +7,7 @@ import java.awt.Color;
 /**
  * Represents a boid that evolves within a 2D boid simulator.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class Boid {

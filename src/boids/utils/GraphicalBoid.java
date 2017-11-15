@@ -9,7 +9,7 @@ import java.awt.Polygon;
  * The GraphicalBoid is the graphical element registerd to the gui. The boid is
  * drawn as a triangle that rotates towards its velocity.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class GraphicalBoid implements GraphicalElement {

@@ -15,7 +15,7 @@ import java.util.Set;
  * It performs the following operations: - Add in O(1) ; - Remove in O(1) ; -
  * Remove random in O(1) ;
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @param <T> The class of the content of this set (here, SchellingCell).
  */
 public class SchellingSet<T> extends AbstractSet<T> implements Set<T> {

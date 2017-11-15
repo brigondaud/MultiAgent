@@ -13,7 +13,7 @@ import java.util.List;
  *
  * Their are 2 possible states : - State("Alive") - State("Dead")
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class ConwayAutomaton extends Automaton {

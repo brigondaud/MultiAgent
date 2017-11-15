@@ -5,7 +5,7 @@ import balls.BallsSimulator;
 /**
  * Test for the ball simulation
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  */
 public class TestBallsSimulator {
 

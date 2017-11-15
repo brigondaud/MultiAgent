@@ -11,7 +11,7 @@ import systems.AbstractAgent;
  *
  * @see Grid
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 abstract public class Cell extends AbstractAgent {

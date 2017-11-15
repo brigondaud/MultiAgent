@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
  * The event manager manages the event by executing them in the correct order
  * (based on their date).
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class EventManager {

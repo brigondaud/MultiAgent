@@ -5,7 +5,7 @@ import events.MessageEvent;
 
 /**
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  */
 public class TestEventManager {
 

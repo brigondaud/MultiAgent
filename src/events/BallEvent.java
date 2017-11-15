@@ -8,7 +8,7 @@ import balls.Balls;
  * movement and create a new movement in the movement manager to simulate a
  * continuous movement.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class BallEvent extends Event {

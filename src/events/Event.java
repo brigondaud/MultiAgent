@@ -3,7 +3,7 @@ package events;
 /**
  * Represents an event that can be created to execute an action at a given date.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public abstract class Event implements Comparable<Event> {

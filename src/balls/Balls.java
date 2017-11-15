@@ -11,7 +11,7 @@ import gui.Oval;
  * Vector of Balls represented by Points. This modelisation fits with the
  * wording.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class Balls implements GraphicalElement {

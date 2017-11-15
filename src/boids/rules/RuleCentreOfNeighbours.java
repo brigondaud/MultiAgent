@@ -8,7 +8,7 @@ import boids.utils.Vector2D;
  * Represents a rule which regroups boids. Useful to encourage boids in a same
  * group to meet.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class RuleCentreOfNeighbours extends Rule {

@@ -7,7 +7,7 @@ import automata.Automaton;
  * manager of a cellular automaton. The event auto-generates other events in its
  * event manager to simulate a continuous evolution of the cellular automaton.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class AutomatonEvent extends Event {

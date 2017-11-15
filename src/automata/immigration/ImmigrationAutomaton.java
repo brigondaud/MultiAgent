@@ -11,7 +11,7 @@ import automata.State;
  * Represents a 2D automaton for Immigration Game: a Conway's Game of Life but
  * with n states.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class ImmigrationAutomaton extends Automaton {

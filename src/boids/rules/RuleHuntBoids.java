@@ -8,7 +8,7 @@ import boids.utils.Vector2D;
  * Represents a rule where a boid hunts the nearest prey boid. Useful to create
  * a predator/prey environment.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class RuleHuntBoids extends Rule {

@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * Represents of a cell for Conway's Game of Life. This class extends the
  * abstract cell model.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class ConwayCell extends Cell {

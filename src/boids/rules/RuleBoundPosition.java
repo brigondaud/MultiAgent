@@ -7,7 +7,7 @@ import boids.utils.Vector2D;
  * Represents a rule which bounds boids in a specific rectangle. Useful to force
  * the boids to stay inside the window.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class RuleBoundPosition extends Rule {

@@ -9,7 +9,7 @@ import gui.GUISimulator;
 /**
  * A class to test the drawing of the boids.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  */
 public class TestDrawGraphicalBoid {
 

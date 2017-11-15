@@ -4,7 +4,7 @@ import automata.conway.ConwayAutomaton;
 
 /**
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  */
 public class TestAutomataConway {
 

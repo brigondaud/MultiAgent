@@ -10,7 +10,7 @@ import systems.AbstractSystem;
 /**
  * Represents a multiagent system where agents are boids.
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  * @version 1.0
  */
 public class BoidSystem extends AbstractSystem {

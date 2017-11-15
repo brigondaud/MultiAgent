@@ -6,7 +6,7 @@ import boids.rules.*;
 
 /**
  *
- * @author Team 22 in Teide
+ * @author Baptiste Rigondaud, Aurélien Pépin, Valentin Sicard
  */
 public class TestBoidHunting {
 
